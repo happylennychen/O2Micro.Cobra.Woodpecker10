@@ -926,53 +926,7 @@
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
       <RegRef>1</RegRef>
-      <SubType>0</SubType>
-      <HexMin>0</HexMin>
-      <HexMax>1</HexMax>
-      <PhyMin>0</PhyMin>
-      <PhyMax>1</PhyMax>
-      <LocationList>
-        <Location Position="Low">
-          <Address>18</Address>
-          <StartBit>5</StartBit>
-          <BitsNumber>1</BitsNumber>
-        </Location>
-      </LocationList>
-      <ItemList>
-        <Item>Do not need software to clear the event flags so as to release the protections</Item>
-        <Item>Need software to clear the event flags so as to release the protections</Item>
-      </ItemList>
-      <Private>
-        <SFL Name="Expert">
-          <CustomerMode>true</CustomerMode>
-          <BitTotal>8</BitTotal>
-          <Index>18</Index>
-          <BitStart>5</BitStart>
-          <Length>1</Length>
-          <Value>0</Value>
-          <Read>true</Read>
-          <Write>true</Write>
-          <Group>EFUSE</Group>
-          <Description>SW_RELEASE</Description>
-        </SFL>
-        <SFL Name="EFUSE Config">
-          <NickName>SW_RELEASE</NickName>
-          <Catalog>Woodpecker10</Catalog>
-          <DefValue>0</DefValue>
-          <MinValue>0</MinValue>
-          <MaxValue>1</MaxValue>
-          <EditType>1</EditType>
-          <Format>0</Format>
-          <Description>It specifies how to release protection events. Only effective in I2C mode.</Description>
-          <Order>14</Order>
-        </SFL>
-      </Private>
-    </Element>
-    <Element Guid="0x00031805">
-      <PhysicalData>0</PhysicalData>
-      <PhyRef>1</PhyRef>
-      <RegRef>1</RegRef>
-      <Offset>2</Offset>
+      <Offset>0</Offset>
       <SubType>0</SubType>
       <HexMin>0</HexMin>
       <HexMax>7</HexMax>
@@ -1060,7 +1014,7 @@
           <Description>OV protection threshold for each cell</Description>
           <Order>3</Order>
           <Relations>
-            <Item>0x00031b04</Item>
+            <Item>0x00031d04</Item>
           </Relations>
         </SFL>
       </Private>
@@ -1270,7 +1224,7 @@
           <Description>Battery type</Description>
           <Relations>
             <Item>0x00031900</Item>
-            <Item>0x00031b04</Item>
+            <Item>0x00031d04</Item>
           </Relations>
           <Order>2</Order>
         </SFL>
@@ -2083,6 +2037,37 @@
         </SFL>
       </Private>
     </Element>
+    <Element Guid="0x00032006">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>20</Address>
+          <StartBit>6</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>20</Index>
+          <BitStart>6</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Reserved</Description>
+        </SFL>
+      </Private>
+    </Element>
     <Element Guid="0x00032100">
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
@@ -2664,53 +2649,7 @@
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
       <RegRef>1</RegRef>
-      <SubType>0</SubType>
-      <HexMin>0</HexMin>
-      <HexMax>1</HexMax>
-      <PhyMin>0</PhyMin>
-      <PhyMax>1</PhyMax>
-      <LocationList>
-        <Location Position="Low">
-          <Address>28</Address>
-          <StartBit>5</StartBit>
-          <BitsNumber>1</BitsNumber>
-        </Location>
-      </LocationList>
-      <ItemList>
-        <Item>Do not need software to clear the event flags so as to release the protections</Item>
-        <Item>Need software to clear the event flags so as to release the protections</Item>
-      </ItemList>
-      <Private>
-        <SFL Name="Expert">
-          <CustomerMode>true</CustomerMode>
-          <BitTotal>8</BitTotal>
-          <Index>28</Index>
-          <BitStart>5</BitStart>
-          <Length>1</Length>
-          <Value>0</Value>
-          <Read>true</Read>
-          <Write>true</Write>
-          <Group>Mapping</Group>
-          <Description>SW_RELEASE</Description>
-        </SFL>
-        <SFL Name="Register Config">
-          <NickName>SW_RELEASE</NickName>
-          <Catalog>Woodpecker10</Catalog>
-          <DefValue>0</DefValue>
-          <MinValue>0</MinValue>
-          <MaxValue>1</MaxValue>
-          <EditType>1</EditType>
-          <Format>0</Format>
-          <Description>It specifies how to release protection events. Only effective in I2C mode.</Description>
-          <Order>14</Order>
-        </SFL>
-      </Private>
-    </Element>
-    <Element Guid="0x00032805">
-      <PhysicalData>0</PhysicalData>
-      <PhyRef>1</PhyRef>
-      <RegRef>1</RegRef>
-      <Offset>2</Offset>
+      <Offset>0</Offset>
       <SubType>0</SubType>
       <HexMin>0</HexMin>
       <HexMax>7</HexMax>
@@ -2798,7 +2737,7 @@
           <Description>OV protection threshold for each cell</Description>
           <Order>3</Order>
           <Relations>
-            <Item>0x00032b04</Item>
+            <Item>0x00032d04</Item>
           </Relations>
         </SFL>
       </Private>
@@ -3008,7 +2947,7 @@
           <Description>Battery type</Description>
           <Relations>
             <Item>0x00032900</Item>
-            <Item>0x00032b04</Item>
+            <Item>0x00032d04</Item>
           </Relations>
           <Order>2</Order>
         </SFL>
@@ -4503,6 +4442,68 @@
         </SFL>
       </Private>
     </Element>
+    <Element Guid="0x00033700">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>37</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>37</Index>
+          <BitStart>0</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cell_sel</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033704">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>37</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>37</Index>
+          <BitStart>4</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cto_sel</Description>
+        </SFL>
+      </Private>
+    </Element>
     <Element Guid="0x00033800">
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
@@ -4782,6 +4783,41 @@
         </SFL>
       </Private>
     </Element>
+    <Element Guid="0x00033907">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>39</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Do not need software to clear the event flags so as to release the protections</Item>
+        <Item>Need software to clear the event flags so as to release the protections</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>39</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>SW_RELEASE</Description>
+        </SFL>
+      </Private>
+    </Element>
     <Element Guid="0x00033A02">
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
@@ -5057,11 +5093,11 @@
           <MinValue>0</MinValue>
           <MaxValue>1</MaxValue>
           <Relations>
+            <Item>0x00031800</Item>
             <Item>0x00031802</Item>
             <Item>0x00031804</Item>
-            <Item>0x00031906</Item>
-            <Item>0x00031605</Item>
-            <Item>0x00031800</Item>
+            <Item>0x00031B05</Item>
+            <Item>0x00031C03</Item>
           </Relations>
           <Description>OT and UT function Disable/Enable</Description>
         </SFL>
@@ -5092,11 +5128,11 @@
           <MinValue>0</MinValue>
           <MaxValue>1</MaxValue>
           <Relations>
+            <Item>0x00032800</Item>
             <Item>0x00032802</Item>
             <Item>0x00032804</Item>
-            <Item>0x00032906</Item>
-            <Item>0x00032605</Item>
-            <Item>0x00032800</Item>
+            <Item>0x00032B05</Item>
+            <Item>0x00032C03</Item>
           </Relations>
           <Description>OT and UT function Disable/Enable</Description>
         </SFL>

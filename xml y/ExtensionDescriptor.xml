@@ -4,9 +4,9 @@
     <ChipName>Woodpecker10</ChipName>
     <ChipVersion>A0</ChipVersion>
     <UserType>Y</UserType>
-    <Date>20200323</Date>
+    <Date>20200513</Date>
     <HasCom>true</HasCom>
-    <HasAMT>false</HasAMT>
+    <HasAMT>true</HasAMT>
   </Part>
   <Part Name = "MainBtnList">
     <Button Label = "Expert"	Name = "Exper"         PanelName ="O2Micro.Cobra.ExperPanel"/>
