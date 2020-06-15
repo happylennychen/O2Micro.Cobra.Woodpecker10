@@ -75,7 +75,7 @@ namespace O2Micro.Cobra.Woodpecker10
             if (p == null) return;
             switch ((ElementDefine.SUBTYPE)p.subtype)
             {
-                case ElementDefine.SUBTYPE.DOT_TH:
+                case ElementDefine.SUBTYPE.CELL_NUM:
                     ret = ReadFromRegImg(p, ref wdata);
                     if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                     {
@@ -87,6 +87,18 @@ namespace O2Micro.Cobra.Woodpecker10
                     else
                         p.phydata = 0;
                     break;
+                //case ElementDefine.SUBTYPE.DOT_TH:
+                //    ret = ReadFromRegImg(p, ref wdata);
+                //    if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                //    {
+                //        p.phydata = ElementDefine.PARAM_PHYSICAL_ERROR;
+                //        break;
+                //    }
+                //    if (wdata >= 2)
+                //        p.phydata = wdata - 2;
+                //    else
+                //        p.phydata = 0;
+                //    break;
                 case ElementDefine.SUBTYPE.OVP:
                     ret = ReadFromRegImg(p, ref wdata);
                     if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)

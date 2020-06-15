@@ -104,6 +104,7 @@ namespace O2Micro.Cobra.Woodpecker10
             DEFAULT = 0,
             DOT_TH = 1,
             OVP = 2,
+            CELL_NUM = 3,
             
             EXT_TEMP_TABLE = 40,
             INT_TEMP_REFER = 41

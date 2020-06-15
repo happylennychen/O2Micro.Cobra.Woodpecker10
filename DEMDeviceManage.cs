@@ -165,7 +165,7 @@ namespace O2Micro.Cobra.Woodpecker10
             m_register_config_dem_bm.parent = this;
             m_register_config_dem_bm.dem_dm = new RegisterConfigDEMDataManage(m_register_config_dem_bm);
             m_efuse_config_dem_bm.parent = this;
-            m_efuse_config_dem_bm.dem_dm = new RegisterConfigDEMDataManage(m_register_config_dem_bm);//共用
+            m_efuse_config_dem_bm.dem_dm = new RegisterConfigDEMDataManage(m_efuse_config_dem_bm);//共用
             m_expert_dem_bm.parent = this;
             m_expert_dem_bm.dem_dm = new ExpertDEMDataManage(m_expert_dem_bm);
             LibInfor.AssemblyRegister(Assembly.GetExecutingAssembly(), ASSEMBLY_TYPE.OCE);
@@ -270,13 +270,24 @@ namespace O2Micro.Cobra.Woodpecker10
         {
             if (bgworker.gm.sflname == "Expert")
                 return m_expert_dem_bm.ConvertHexToPhysical(ref bgworker);
+            else if (bgworker.gm.sflname == "Register Config")
+                return m_register_config_dem_bm.ConvertHexToPhysical(ref bgworker);
+            else if (bgworker.gm.sflname == "EFUSE Config")
+                return m_efuse_config_dem_bm.ConvertHexToPhysical(ref bgworker);
             else
                 return m_dem_bm_base.ConvertHexToPhysical(ref bgworker);
         }
 
         public UInt32 ConvertPhysicalToHex(ref TASKMessage bgworker)
         {
-            return m_dem_bm_base.ConvertPhysicalToHex(ref bgworker);
+            if (bgworker.gm.sflname == "Expert")
+                return m_expert_dem_bm.ConvertPhysicalToHex(ref bgworker);
+            else if (bgworker.gm.sflname == "Register Config")
+                return m_register_config_dem_bm.ConvertPhysicalToHex(ref bgworker);
+            else if (bgworker.gm.sflname == "EFUSE Config")
+                return m_efuse_config_dem_bm.ConvertPhysicalToHex(ref bgworker);
+            else
+                return m_dem_bm_base.ConvertPhysicalToHex(ref bgworker);
         }
 
         public UInt32 GetSystemInfor(ref TASKMessage bgworker)

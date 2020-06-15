@@ -813,6 +813,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>Tot-ut-dly</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>Tot-ut-dly</NickName>
@@ -908,6 +909,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>COT_TH</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>COT_TH</NickName>
@@ -927,7 +929,7 @@
       <PhyRef>1</PhyRef>
       <RegRef>1</RegRef>
       <Offset>0</Offset>
-      <SubType>0</SubType>
+      <SubType>3</SubType>
       <HexMin>0</HexMin>
       <HexMax>7</HexMax>
       <PhyMin>0</PhyMin>
@@ -959,6 +961,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>cell num</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>Ncell</NickName>
@@ -1111,6 +1114,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>Vuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>Vuvp</NickName>
@@ -1166,6 +1170,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>Vuvr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>Vuvr-hys</NickName>
@@ -1814,6 +1819,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>ovuv_scan_rate</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>ovuv_scan_rate</NickName>
@@ -1862,6 +1868,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>Tovp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>Tovp</NickName>
@@ -1910,6 +1917,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>Tuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>Tuvp</NickName>
@@ -1961,6 +1969,7 @@
           <Write>true</Write>
           <Group>EFUSE</Group>
           <Description>Vovr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
         </SFL>
         <SFL Name="EFUSE Config">
           <NickName>Vovr-hys</NickName>
@@ -2536,6 +2545,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>Tot-ut-dly</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
           <NickName>Tot-ut-dly</NickName>
@@ -2631,6 +2641,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>COT_TH</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
           <NickName>COT_TH</NickName>
@@ -2650,7 +2661,7 @@
       <PhyRef>1</PhyRef>
       <RegRef>1</RegRef>
       <Offset>0</Offset>
-      <SubType>0</SubType>
+      <SubType>3</SubType>
       <HexMin>0</HexMin>
       <HexMax>7</HexMax>
       <PhyMin>0</PhyMin>
@@ -2682,6 +2693,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>cell num</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
           <NickName>Ncell</NickName>
@@ -2834,6 +2846,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>Vuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
           <NickName>Vuvp</NickName>
@@ -2889,6 +2902,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>Vuvr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
         </SFL>
         <SFL Name="Register Config">
           <NickName>Vuvr-hys</NickName>
@@ -3537,6 +3551,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>ovuv_scan_rate</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
           <NickName>ovuv_scan_rate</NickName>
@@ -3585,6 +3600,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>Tovp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
           <NickName>Tovp</NickName>
@@ -3633,6 +3649,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>Tuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
           <NickName>Tuvp</NickName>
@@ -3684,6 +3701,7 @@
           <Write>true</Write>
           <Group>Mapping</Group>
           <Description>Vovr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
         </SFL>
         <SFL Name="Register Config">
           <NickName>Vovr-hys</NickName>
