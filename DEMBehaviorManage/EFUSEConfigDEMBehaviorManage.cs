@@ -26,7 +26,7 @@ namespace O2Micro.Cobra.Woodpecker10
                         ret = SetWorkMode(ElementDefine.EFUSE_MODE.PROGRAM);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
-                        msg.gm.message = "Please provide 7.2V power supply to Tref pin, and limit its current to 80mA.";
+                        msg.gm.message = "Please provide 7.2V power supply to Tref pin and limit its current to 150mA.";
                         msg.controlreq = COMMON_CONTROL.COMMON_CONTROL_SELECT;
                         if (!msg.controlmsg.bcancel) return LibErrorCode.IDS_ERR_DEM_USER_QUIT;
                         msg.percent = 40;
@@ -57,13 +57,13 @@ namespace O2Micro.Cobra.Woodpecker10
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
 
-                        msg.gm.message = "Please provide 7.2V power supply to Tref pin, and limit its current to 80mA.";
+                        msg.gm.message = "Please provide 7.2V power supply to Tref pin and limit its current to 150mA.";
                         msg.controlreq = COMMON_CONTROL.COMMON_CONTROL_SELECT;
                         if (!msg.controlmsg.bcancel) return LibErrorCode.IDS_ERR_DEM_USER_QUIT;
 
-                        if (!isOPEmpty())
+                        if (isEFFrozen())
                         {
-                            ret = ElementDefine.IDS_ERR_DEM_FROZEN_OP;
+                            ret = ElementDefine.IDS_ERR_DEM_FROZEN;
                             return ret;
                         }
                         msg.percent = 30;
@@ -80,7 +80,23 @@ namespace O2Micro.Cobra.Woodpecker10
                             return ret;
                         PrepareHexData();
                         msg.percent = 60;
+                        Dictionary<byte, ushort> pairs = StoreEFUSE();
                         ret = Write(ref msg);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            return ret;
+                        Mapping();
+                        if (!IsDownloadSuccessful(pairs))
+                        {
+                            ret = ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED;
+                            return ret;
+                        }
+                        ret = Read(ref msg);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            return ret;
+                        msg.gm.message = "Please remove 7.2V power supply from Tref pin.";
+                        msg.controlreq = COMMON_CONTROL.COMMON_CONTROL_SELECT;
+                        if (!msg.controlmsg.bcancel) return LibErrorCode.IDS_ERR_DEM_USER_QUIT;
+                        ret = SetWorkMode(ElementDefine.EFUSE_MODE.NORMAL);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
                         msg.percent = 80;
@@ -126,14 +142,46 @@ namespace O2Micro.Cobra.Woodpecker10
             return ret;
         }
 
-        private bool isOPEmpty()
+        private bool IsDownloadSuccessful(Dictionary<byte, ushort> pairs)
+        {
+            byte buf = 0;
+            for (byte i = (byte)ElementDefine.OP_USR_OFFSET; i <= ElementDefine.OP_USR_TOP; i++)
+            {
+                ReadByte(i, ref buf);
+                if (buf != pairs[(byte)(i - 0x10)])
+                    return false;
+            }
+            return true;
+        }
+
+        private void Mapping()
         {
             byte tmp = 0;
-            ReadByte(0x2d, ref tmp);
+            ReadByte((byte)ElementDefine.WORKMODE_REG, ref tmp);
+            WriteByte((byte)ElementDefine.WORKMODE_REG, (byte)(tmp & 0xdf));
+
+            ReadByte((byte)ElementDefine.OP_SW_MAPPING, ref tmp);
+            WriteByte((byte)ElementDefine.OP_SW_MAPPING, (byte)(tmp | 0x08));
+        }
+
+        private Dictionary<byte, ushort> StoreEFUSE()
+        {
+            Dictionary<byte, ushort> output = new Dictionary<byte, ushort>();
+            for (byte i = (byte)ElementDefine.EF_USR_OFFSET; i <= ElementDefine.EF_USR_TOP; i++)
+            {
+                output.Add(i, parent.m_OpRegImg[i].val);
+            }
+            return output;
+        }
+
+        private bool isEFFrozen()
+        {
+            byte tmp = 0;
+            ReadByte((byte)ElementDefine.EF_USR_TOP, ref tmp);
             if ((tmp & 0x80) == 0x80)
-                return false;
-            else
                 return true;
+            else
+                return false;
         }
 
         private void InitEfuseData()

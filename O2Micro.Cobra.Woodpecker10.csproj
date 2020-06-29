@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{29854955-99BF-4A07-9997-B4819A92E9D9}</ProjectGuid>
+    <ProjectGuid>{861A15DF-14C6-4D3D-8CDD-AA3A88635721}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>O2Micro.Cobra.Woodpecker10</RootNamespace>
@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="DEMBehaviorManage\DEMBehaviorManageBase.cs" />
     <Compile Include="DEMBehaviorManage\ExpertDEMBehaviorManage.cs" />
-    <Compile Include="DEMBehaviorManage\MassProductionDEMBehaviorManage.cs" />
     <Compile Include="DEMBehaviorManage\EFUSEConfigDEMBehaviorManage.cs" />
     <Compile Include="DEMBehaviorManage\RegisterConfigDEMBehaviorManage.cs" />
     <Compile Include="DEMDataManage\DEMDataManageBase.cs" />
@@ -53,7 +52,7 @@
     <Compile Include="DEMDeviceManage.cs" />
     <Compile Include="ElementDefine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tool\RegisterListGenerator.cs" />
+    <Compile Include="Tool\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\O2Micro.Cobra.AutoMationTest\O2Micro.Cobra.AutoMationTest.csproj">
@@ -78,7 +77,6 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -25,10 +25,9 @@ namespace O2Micro.Cobra.Woodpecker10
         internal const UInt16 EF_USR_OFFSET = 0x18;
         internal const UInt16 EF_USR_TOP = 0x1d;
 
-        //internal const UInt16 EF_USR_BANK1_OFFSET = 0x18;
-        //internal const UInt16 EF_USR_BANK1_TOP = 0x1b;
-        //internal const UInt16 EF_USR_BANK2_OFFSET = 0x1c;
-        //internal const UInt16 EF_USR_BANK2_TOP = 0x1f;
+        internal const UInt16 OP_USR_OFFSET = 0x28;
+        internal const UInt16 OP_USR_TOP = 0x2d;
+        internal const UInt16 OP_SW_MAPPING = 0x39;
 
         internal const UInt16 OP_MEMORY_SIZE = 0xFF;
         internal const Byte PARAM_HEX_ERROR = 0xFF;
@@ -85,7 +84,7 @@ namespace O2Micro.Cobra.Woodpecker10
         // EFUSE operation code
 
         // EFUSE control registers' addresses
-        internal const byte EFUSE_WORKMODE_REG = 0x40;
+        internal const byte WORKMODE_REG = 0x40;
         //internal const byte EFUSE_TESTCTR_REG = 0x41;
         //internal const byte EFUSE_ATE_FROZEN_REG = 0x04;
         //internal const byte EFUSE_USER_FROZEN_REG = 0x07;
@@ -111,13 +110,14 @@ namespace O2Micro.Cobra.Woodpecker10
         }
 
         #region Local ErrorCode
-        internal const UInt32 IDS_ERR_DEM_POWERON_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0001;
-        internal const UInt32 IDS_ERR_DEM_POWEROFF_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0002;
-        internal const UInt32 IDS_ERR_DEM_POWERCHECK_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0003;
-        internal const UInt32 IDS_ERR_DEM_FROZEN_EFUSE = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0004;
-        internal const UInt32 IDS_ERR_DEM_FROZEN_OP = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0005;
+        //internal const UInt32 IDS_ERR_DEM_POWERON_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0001;
+        //internal const UInt32 IDS_ERR_DEM_POWEROFF_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0002;
+        //internal const UInt32 IDS_ERR_DEM_POWERCHECK_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0003;
+        //internal const UInt32 IDS_ERR_DEM_FROZEN_EFUSE = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0004;
+        internal const UInt32 IDS_ERR_DEM_FROZEN = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0005;
         //internal const UInt32 IDS_ERR_DEM_BLOCK = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0006;
         internal const UInt32 IDS_ERR_DEM_ONE_PARAM_DISABLE = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0007;
+        internal const UInt32 IDS_ERR_DEM_READ_BACK_CHECK_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0008;
         #endregion
 
         public enum EFUSE_MODE : ushort
@@ -129,17 +129,17 @@ namespace O2Micro.Cobra.Woodpecker10
 
         internal enum COMMAND : ushort
         {
-            MP_FROZEN_BIT_CHECK_PC = 9,
-            MP_FROZEN_BIT_CHECK = 10,
-            MP_DIRTY_CHIP_CHECK_PC = 11,
-            MP_DIRTY_CHIP_CHECK = 12,
-            MP_DOWNLOAD_PC = 13,
-            MP_DOWNLOAD = 14,
-            MP_READ_BACK_CHECK_PC = 15,
-            MP_READ_BACK_CHECK = 16,
+            //MP_FROZEN_BIT_CHECK_PC = 9,
+            //MP_FROZEN_BIT_CHECK = 10,
+            //MP_DIRTY_CHIP_CHECK_PC = 11,
+            //MP_DIRTY_CHIP_CHECK = 12,
+            //MP_DOWNLOAD_PC = 13,
+            //MP_DOWNLOAD = 14,
+            //MP_READ_BACK_CHECK_PC = 15,
+            //MP_READ_BACK_CHECK = 16,
             //GET_EFUSE_HEX_DATA = 17,  //不再使用此命令，与OZ77系列统一
             EFUSE_CONFIG_SAVE_EFUSE_HEX = 18,
-            MP_BIN_FILE_CHECK = 21,                   //检查bin文件的合法性
+            //MP_BIN_FILE_CHECK = 21,                   //检查bin文件的合法性
             REGISTER_CONFIG_READ = 22,
             REGISTER_CONFIG_WRITE = 23,
             EFUSE_CONFIG_READ = 24,

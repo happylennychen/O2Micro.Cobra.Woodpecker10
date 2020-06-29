@@ -212,8 +212,17 @@ namespace O2Micro.Cobra.Woodpecker10
             buf &= 0xfc;
             buf |= (byte)wkm;
             buf |= 0xA0;
+            if (wkm == ElementDefine.EFUSE_MODE.NORMAL) //Jianping: EFUSE烧写完成后把mapping disable清零。这里跟KALL不同
+            {
+                buf &= 0xdf;
+            }
             ret = OnWriteByte(ElementDefine.WORKMODE_OFFSET, buf);
             ret = OnWriteByte(ElementDefine.WORKMODE_OFFSET, buf);
+            if (wkm == ElementDefine.EFUSE_MODE.NORMAL)
+            {
+                buf &= 0x7f;
+                ret = OnWriteByte(ElementDefine.WORKMODE_OFFSET, buf);
+            }
             return ret;
         }
 
@@ -274,7 +283,7 @@ namespace O2Micro.Cobra.Woodpecker10
             ParamContainer demparameterlist = msg.task_parameterlist;
             if (demparameterlist == null) return ret;
 
-            OpReglist = RegisterListGenerator.Generate(ref msg);
+            OpReglist = Utility.GenerateRegisterList(ref msg);
             if (OpReglist == null)
                 return ret;
 
@@ -294,7 +303,7 @@ namespace O2Micro.Cobra.Woodpecker10
             UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
             List<byte> OpReglist = new List<byte>();
 
-            OpReglist = RegisterListGenerator.Generate(ref msg);
+            OpReglist = Utility.GenerateRegisterList(ref msg);
             if (OpReglist == null)
                 return ret;
             //Removed this warning as discussed with Jianping 20200513
@@ -339,7 +348,7 @@ namespace O2Micro.Cobra.Woodpecker10
             UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
 
             List<Parameter> OpParamList = new List<Parameter>();
-            OpParamList = ParamListGenerator.Generate(ref msg);
+            OpParamList = Utility.GenerateParameterList(ref msg);
             if (OpParamList == null)
                 return ret;
 
@@ -359,7 +368,7 @@ namespace O2Micro.Cobra.Woodpecker10
             UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
 
             List<Parameter> OpParamList = new List<Parameter>();
-            OpParamList = ParamListGenerator.Generate(ref msg);
+            OpParamList = Utility.GenerateParameterList(ref msg);
             if (OpParamList == null)
                 return ret;
 

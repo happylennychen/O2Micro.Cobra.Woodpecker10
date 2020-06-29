@@ -38,6 +38,9 @@ namespace O2Micro.Cobra.Woodpecker10
                         ret = ConvertHexToPhysical(ref msg);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
+                        ret = SetWorkMode(ElementDefine.EFUSE_MODE.NORMAL);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            return ret;
                         break;
                     }
                 case ElementDefine.COMMAND.REGISTER_CONFIG_WRITE:
@@ -47,9 +50,9 @@ namespace O2Micro.Cobra.Woodpecker10
                         ret = SetWorkMode(ElementDefine.EFUSE_MODE.WRITE_MAP_CTRL);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
-                        if (!isOPEmpty())
+                        if (isOPFrozen())
                         {
-                            ret = ElementDefine.IDS_ERR_DEM_FROZEN_OP;
+                            ret = ElementDefine.IDS_ERR_DEM_FROZEN;
                             return ret;
                         }
                         msg.percent = 30;
@@ -72,20 +75,23 @@ namespace O2Micro.Cobra.Woodpecker10
                         ret = ConvertHexToPhysical(ref msg);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
+                        ret = SetWorkMode(ElementDefine.EFUSE_MODE.NORMAL);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            return ret;
                         break;
                     }
             }
             return ret;
         }
 
-        private bool isOPEmpty()
+        private bool isOPFrozen()
         {
             byte tmp = 0;
-            ReadByte(0x2d, ref tmp);
+            ReadByte((byte)(ElementDefine.OP_USR_TOP), ref tmp);
             if ((tmp & 0x80) == 0x80)
-                return false;
-            else
                 return true;
+            else
+                return false;
         }
         #endregion
     }

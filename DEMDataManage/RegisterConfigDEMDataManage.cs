@@ -135,6 +135,7 @@ namespace O2Micro.Cobra.Woodpecker10
                     if (pOVR.itemlist.Contains("400mV"))
                     {
                         pOVR.itemlist.Remove("400mV");
+                        if (pOVR.phydata >= pOVR.itemlist.Count) pOVR.phydata = (pOVR.itemlist.Count - 1);
                     }
                 }
 
@@ -153,6 +154,7 @@ namespace O2Micro.Cobra.Woodpecker10
                     if (pOVR.itemlist.Contains("400mV"))
                     {
                         pOVR.itemlist.Remove("400mV");
+                        if (pOVR.phydata >= pOVR.itemlist.Count) pOVR.phydata = (pOVR.itemlist.Count - 1);
                     }
                 }
             }
@@ -177,13 +179,16 @@ namespace O2Micro.Cobra.Woodpecker10
         }
         private void UpdateUVR(ref Parameter pUVR)
         {
+            Parameter pBAT_TYPE = new Parameter();
             Parameter pUVP = new Parameter();
             switch (pUVR.guid)
             {
                 case ElementDefine.O_UVR_HYS:
+                    pBAT_TYPE = parent.parent.pO_BAT_TYPE;
                     pUVP = parent.parent.pO_UVP_TH;
                     break;
                 case ElementDefine.E_UVR_HYS:
+                    pBAT_TYPE = parent.parent.pE_BAT_TYPE;
                     pUVP = parent.parent.pE_UVP_TH;
                     break;
             }
@@ -191,18 +196,29 @@ namespace O2Micro.Cobra.Woodpecker10
             if (num > 8)
                 num = 8;
             int diff = pUVR.itemlist.Count - num;
-            if (diff > 0)
+            if (pBAT_TYPE.phydata == 1)
             {
-                for (int i = diff; i > 0; i--)
+                if (diff > 0)
                 {
-                    pUVR.itemlist.RemoveAt(pUVR.itemlist.Count - 1);
+                    for (int i = diff; i > 0; i--)
+                    {
+                        pUVR.itemlist.RemoveAt(pUVR.itemlist.Count - 1);
+                        if (pUVR.phydata >= pUVR.itemlist.Count) pUVR.phydata = (pUVR.itemlist.Count - 1);
+                    }
+                }
+                else if (diff < 0)
+                {
+                    for (int i = -diff; i > 0; i--)
+                    {
+                        pUVR.itemlist.Add(((pUVR.itemlist.Count + 1) * 100).ToString() + "mV");
+                    }
                 }
             }
-            else if (diff < 0)
+            else if (pBAT_TYPE.phydata == 0)
             {
-                for (int i = -diff; i > 0; i--)
+                for (int i = pUVR.itemlist.Count; i < 8; i++)
                 {
-                    pUVR.itemlist.Add(((pUVR.itemlist.Count + 1) * 100).ToString() + "mV");
+                    pUVR.itemlist.Add(((i + 1) * 100).ToString() + "mV");
                 }
             }
         }
@@ -272,7 +288,13 @@ namespace O2Micro.Cobra.Woodpecker10
                     WriteToRegImgError(p, ret);
             }*/
             switch ((ElementDefine.SUBTYPE)p.subtype)
-            {
+            {                
+				case ElementDefine.SUBTYPE.CELL_NUM:
+                    wdata = (ushort)(p.phydata + 2);
+                    ret = WriteToRegImg(p, wdata);
+                    if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                        WriteToRegImgError(p, ret);
+                    break;
                 case ElementDefine.SUBTYPE.OVP:
                     dtmp = p.phydata - p.offset;
                     wdata = (UInt16)((double)(dtmp * p.regref) / (double)p.phyref);

@@ -6,9 +6,9 @@ using System.Text;
 
 namespace O2Micro.Cobra.Woodpecker10
 {
-    public static class RegisterListGenerator
+    public static class Utility
     {
-        public static List<byte> Generate(ref TASKMessage msg)
+        public static List<byte> GenerateRegisterList(ref TASKMessage msg)
         {
             Reg reg = null;
             byte baddress = 0;
@@ -30,12 +30,10 @@ namespace O2Micro.Cobra.Woodpecker10
                         OpReglist.Add(baddress);
                 }
             }
+            OpReglist = OpReglist.Distinct().ToList();
             return OpReglist;
         }
-    }
-    public static class ParamListGenerator
-    {
-        public static List<Parameter> Generate(ref TASKMessage msg)
+        public static List<Parameter> GenerateParameterList(ref TASKMessage msg)
         {
             List<Parameter> OpParamList = new List<Parameter>();
 

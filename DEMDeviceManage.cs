@@ -43,7 +43,6 @@ namespace O2Micro.Cobra.Woodpecker10
         private Dictionary<UInt32, COBRA_HWMode_Reg[]> m_HwMode_RegList = new Dictionary<UInt32, COBRA_HWMode_Reg[]>();
 
         private DEMBehaviorManageBase m_dem_bm_base = new DEMBehaviorManageBase();
-        private MassProductionDEMBehaviorManage m_mass_production_dem_bm = new MassProductionDEMBehaviorManage();
         private EFUSEConfigDEMBehaviorManage m_efuse_config_dem_bm = new EFUSEConfigDEMBehaviorManage();
         private RegisterConfigDEMBehaviorManage m_register_config_dem_bm = new RegisterConfigDEMBehaviorManage();
         private ExpertDEMBehaviorManage m_expert_dem_bm = new ExpertDEMBehaviorManage();
@@ -68,12 +67,13 @@ namespace O2Micro.Cobra.Woodpecker10
         #region Dynamic ErrorCode
         public Dictionary<UInt32, string> m_dynamicErrorLib_dic = new Dictionary<uint, string>()
         {
-            {ElementDefine.IDS_ERR_DEM_POWERON_FAILED,"Turn on programming voltage failed!"},
-            {ElementDefine.IDS_ERR_DEM_POWEROFF_FAILED,"Turn off programming voltage failed!"},
-            {ElementDefine.IDS_ERR_DEM_POWERCHECK_FAILED,"Programming voltage check failed!"},
-            {ElementDefine.IDS_ERR_DEM_FROZEN_EFUSE,"EFUSE is frozen, stop writing."},
-            {ElementDefine.IDS_ERR_DEM_FROZEN_OP,"EFUSE is frozen, so writing OP registers is prohibited. Please check IC document for details."},
+            //{ElementDefine.IDS_ERR_DEM_POWERON_FAILED,"Turn on programming voltage failed!"},
+            //{ElementDefine.IDS_ERR_DEM_POWEROFF_FAILED,"Turn off programming voltage failed!"},
+            //{ElementDefine.IDS_ERR_DEM_POWERCHECK_FAILED,"Programming voltage check failed!"},
+            //{ElementDefine.IDS_ERR_DEM_FROZEN_EFUSE,"EFUSE is frozen, stop writing."},
+            {ElementDefine.IDS_ERR_DEM_FROZEN,"Chip is frozen. Write operation is prohibited"},
             {ElementDefine.IDS_ERR_DEM_ONE_PARAM_DISABLE,"Single parameter opeartion is not supported."},
+            {ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED,"Read back check failed."},
         };
         #endregion
         #region other functions
@@ -232,19 +232,6 @@ namespace O2Micro.Cobra.Woodpecker10
                 case ElementDefine.COMMAND.EFUSE_CONFIG_SAVE_EFUSE_HEX:
                     {
                         ret = m_efuse_config_dem_bm.Command(ref bgworker);
-                        break;
-                    }
-                case ElementDefine.COMMAND.MP_BIN_FILE_CHECK:
-                case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK_PC:
-                case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK:
-                case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK_PC:
-                case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK:
-                case ElementDefine.COMMAND.MP_DOWNLOAD_PC:
-                case ElementDefine.COMMAND.MP_DOWNLOAD:
-                case ElementDefine.COMMAND.MP_READ_BACK_CHECK_PC:
-                case ElementDefine.COMMAND.MP_READ_BACK_CHECK:
-                    {
-                        ret = m_mass_production_dem_bm.Command(ref bgworker);
                         break;
                     }
             }
