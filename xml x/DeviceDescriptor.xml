@@ -1,0 +1,3482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root usage="DeviceDescriptor" chip="Woodpecker10" version="1.00">
+  <Section Name ="BusOptions" Guid ="0x00100000">
+    <Element Guid ="0x00100000">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList></ItemList>
+      <Private>
+        <SFL Name ="BusOptions">
+          <Order>0</Order>
+          <NickName>Connect Port:</NickName>
+          <Catalog>Common Configuration</Catalog>
+          <DefValue>0</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>16</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid ="0x00100001">
+      <PhysicalData>100</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <Private>
+        <SFL Name ="BusOptions">
+          <Order>0</Order>
+          <NickName>I2C Bus Frequency(KHZ):</NickName>
+          <Catalog>Common Configuration</Catalog>
+          <DefValue>400</DefValue>
+          <EditType>0</EditType>
+          <Format>1</Format>
+          <MinValue>63</MinValue>
+          <MaxValue>400</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid ="0x00100002">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>0x50</Item>
+      </ItemList>
+      <Private>
+        <SFL Name ="BusOptions">
+          <Order>0</Order>
+          <NickName>I2C Address:</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>20</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>8</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid ="0x00100003">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>true</Item>
+      </ItemList>
+      <Private>
+        <SFL Name ="BusOptions">
+          <Order>1</Order>
+          <NickName>PEC enable</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>0</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+  </Section>
+  <Section Name="AutomationTestElement" Guid="0x00200000">
+    <Element Guid="0x00200001">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>False</Item>
+        <Item>True</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>0</Order>
+          <NickName>Automation Enable </NickName>
+          <Catalog>Common Setting</Catalog>
+          <DefValue>0</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00200002">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>1</Order>
+          <NickName>Repeat Times </NickName>
+          <Catalog>Common Setting</Catalog>
+          <DefValue>1000</DefValue>
+          <EditType>0</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>1000000</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00200101">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>False</Item>
+        <Item>True</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>1</Order>
+          <NickName>Simulation Enable</NickName>
+          <Catalog>Data Configure</Catalog>
+          <DefValue>1</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00200102">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>1</Order>
+          <NickName>Test Sensitive </NickName>
+          <Catalog>Data Configure</Catalog>
+          <DefValue>10</DefValue>
+          <EditType>0</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>99</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00200201">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>False</Item>
+        <Item>True</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>3</Order>
+          <NickName>Out of Maximum Error </NickName>
+          <Catalog>Data Configure</Catalog>
+          <DefValue>1</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00200202">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>False</Item>
+        <Item>True</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>4</Order>
+          <NickName>Out of Minumum Error </NickName>
+          <Catalog>Data Configure</Catalog>
+          <DefValue>1</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00200203">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>False</Item>
+        <Item>True</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>5</Order>
+          <NickName>PEC Error </NickName>
+          <Catalog>Data Configure</Catalog>
+          <DefValue>1</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00200204">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <ItemList>
+        <Item>False</Item>
+        <Item>True</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="ATTestSelection">
+          <Order>6</Order>
+          <NickName>CRC Error </NickName>
+          <Catalog>Data Configure</Catalog>
+          <DefValue>1</DefValue>
+          <EditType>1</EditType>
+          <Format>1</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+        </SFL>
+      </Private>
+    </Element>
+  </Section>
+  <Section Name="Operation" Guid="0x00030000">
+    <Element Guid="0x00030000">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>FF</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>255</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>0</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>8</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>0</Index>
+          <BitStart>0</BitStart>
+          <Length>8</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>HWID1</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00030100">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>FF</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>255</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>8</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1</Index>
+          <BitStart>0</BitStart>
+          <Length>8</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>HWID2</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031800">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>18</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>2 scan-cycle</Item>
+        <Item>4 scan-cycle</Item>
+        <Item>6 scan-cycle</Item>
+        <Item>8 scan-cycle</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>18</Index>
+          <BitStart>0</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>Tot-ut-dly</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Tot-ut-dly</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>3</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>OT/UT protection delay scan-cycle.</Description>
+          <Order>4</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031802">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>1</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>18</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Disable all OT/UT</Item>
+        <Item>80 degree</Item>
+        <Item>85 degree</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>18</Index>
+          <BitStart>2</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>DOT_TH</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>DOT_TH</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>2</MaxValue>
+          <!--<Relations>
+            <Item>0x000c0001</Item>
+          </Relations>-->
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the DOT threshold.</Description>
+          <Order>3</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031804">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>18</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>50 degree</Item>
+        <Item>55 degree</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>18</Index>
+          <BitStart>4</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>COT_TH</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>COT_TH</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the COT threshold.</Description>
+          <Order>2</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031805">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <Offset>0</Offset>
+      <SubType>3</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>7</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>7</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>18</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>3</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>5 cells</Item>
+        <Item>6 cells</Item>
+        <Item>7 cells</Item>
+        <Item>8 cells</Item>
+        <Item>9 cells</Item>
+        <Item>10 cells</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>18</Index>
+          <BitStart>5</BitStart>
+          <Length>3</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>cell num</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Ncell</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>7</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Number of cells in series</Description>
+          <Order>1</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031900">
+      <PhysicalData>0</PhysicalData>
+      <Offset>3900</Offset>
+      <PhyRef>10</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>2</SubType>
+      <HexMin>a</HexMin>
+      <HexMax>3c</HexMax>
+      <PhyMin>3500</PhyMin>
+      <PhyMax>4500</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>19</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>6</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>19</Index>
+          <BitStart>0</BitStart>
+          <Length>6</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>Vovp</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Vovp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>4000</DefValue>
+          <MinValue>4000</MinValue>
+          <MaxValue>4500</MaxValue>
+          <EditType>0</EditType>
+          <Format>0</Format>
+          <Description>OV protection threshold for each cell</Description>
+          <Order>6</Order>
+          <Relations>
+            <Item>0x00031d04</Item>
+          </Relations>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031907">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>19</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Do not initiate protection on CHG when UV occurs</Item>
+        <Item>Initiate protection on CHG when UV occurs</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>19</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>UV_ON_CHGPAD</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>UV_ON_CHGPAD</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies whether to initiate protection on CHG when UV occurs.</Description>
+          <Order>5</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031A00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>F</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>15</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1A</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>4</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>1200mV</Item>
+        <Item>1400mV</Item>
+        <Item>1600mV</Item>
+        <Item>1800mV</Item>
+        <Item>1900mV</Item>
+        <Item>2000mV</Item>
+        <Item>2100mV</Item>
+        <Item>2200mV</Item>
+        <Item>2300mV</Item>
+        <Item>2400mV</Item>
+        <Item>2500mV</Item>
+        <Item>2600mV</Item>
+        <Item>2700mV</Item>
+        <Item>2800mV</Item>
+        <Item>2900mV</Item>
+        <Item>3000mV</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1A</Index>
+          <BitStart>0</BitStart>
+          <Length>4</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>Vuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Vuvp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>15</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>UV protection threshold for each cell</Description>
+          <Order>9</Order>
+          <Relations>
+            <Item>0x00031a04</Item>
+          </Relations>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031A04">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>7</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>7</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1A</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>3</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>100mV</Item>
+        <Item>200mV</Item>
+        <Item>300mV</Item>
+        <Item>400mV</Item>
+        <Item>500mV</Item>
+        <Item>600mV</Item>
+        <Item>700mV</Item>
+        <Item>800mV</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1A</Index>
+          <BitStart>4</BitStart>
+          <Length>3</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>Vuvr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Vuvr-hys</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>7</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Hysteresis for UV release.</Description>
+          <Order>8</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031A07">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1A</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>select OVP range 4.0V~4.5V for Li_ion Cobalt//Monganate type</Item>
+        <Item>select OVP range 3.5V~4.0V for Li_ion Phosphate type</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1A</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>BAT_TYPE</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>BAT_TYPE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Battery type</Description>
+          <Relations>
+            <Item>0x00031900</Item>
+            <Item>0x00031d04</Item>
+            <Item>0x00031a04</Item>
+          </Relations>
+          <Order>7</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031B00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1B</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Open-drain output</Item>
+        <Item>Push-pull output</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1B</Index>
+          <BitStart>0</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>DSGPAD_TYPE</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>DSGPAD_TYPE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output type of DSG. Only effective for the CMOS type IC.</Description>
+          <Order>f</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031B01">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1B</Address>
+          <StartBit>1</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>DSG outputs Low when no events (i.e. outputs Hi-Z or High when events occur)</Item>
+        <Item>DSG outputs Hi-Z or High when no events (i.e. outputs Low when events occur)</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1B</Index>
+          <BitStart>1</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>DSGPAD_ACTIVE_O</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>DSGPAD_ACTIVE_O</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output state of DSG when protection events occur.</Description>
+          <Order>e</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031B02">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1B</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Open-drain output</Item>
+        <Item>Push-pull output</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1B</Index>
+          <BitStart>2</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>CHGPAD_TYPE</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>CHGPAD_TYPE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output type of CHG. Only effective for the CMOS type IC.</Description>
+          <Order>d</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031B03">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1B</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>CHG outputs Low when no events (i.e. outputs Hi-Z or High when events occur)</Item>
+        <Item>CHG outputs Hi-Z or High when no events (i.e. outputs Low when events occur)</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1B</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>CHGPAD_ACTIVE_O</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>CHGPAD_ACTIVE_O</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output state of CHG when protection events occur.</Description>
+          <Order>c</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031B05">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1B</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Output the 20Hz square wave on SDA with internal weak pull-up when DOT occurs</Item>
+        <Item>Don not output the 20Hz square wave on SDA when DOT occurs</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1B</Index>
+          <BitStart>5</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>DOT_ON_SDA_DIS</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>DOT_ON_SDA_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable the 20Hz square wave output on SDA when DOT occurs. Only effective in Standalone mode.</Description>
+          <Order>b</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031B06">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1B</Address>
+          <StartBit>6</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>share THM when SDA is high pulse and dot_on_sda function (i.e. dot_on_sda_disable=1), but internal OT/UT check always has higher priority, that means internal OT/UT check always runs regularly, THM can’t be shared until internal OT/UT finished</Item>
+        <Item>share THM when SDA is high pulse and no dot_on_sda function (i.e. dot_on_sda_disable=1), in this case, THM can’t be used for internal OT/UT check until SDA high pulse end or timeout</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1B</Index>
+          <BitStart>6</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>THM_SHARE</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>THM_SHARE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies how to share the thermal resistor with the Microcontroller. Only effective in Standalone mode</Description>
+          <Order>a</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031C00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1C</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable UV check</Item>
+        <Item>disable UV check</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1C</Index>
+          <BitStart>0</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>uv_disable</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>UVP_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable uv check</Description>
+          <Order>16</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031C01">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1C</Address>
+          <StartBit>1</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable DOT function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1C</Index>
+          <BitStart>1</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>dot_disable</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>DOT_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable dot function</Description>
+          <Order>15</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031C02">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1C</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable COT function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1C</Index>
+          <BitStart>2</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>cot_disable</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>COT_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable cot function</Description>
+          <Order>14</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031C03">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1C</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable CUT function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1C</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>cut_disable</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>CUT_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable cut function</Description>
+          <Order>13</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031C04">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1C</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable CTO function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1C</Index>
+          <BitStart>4</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>cto_disable</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>CTO_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable cto function</Description>
+          <Order>12</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031C05">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1C</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>active low for alert</Item>
+        <Item>active high for alert</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1C</Index>
+          <BitStart>5</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>alert_option</Description>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>ALERT_OPTION</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>alert_option</Description>
+          <Order>11</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031C07">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1C</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>125mS</Item>
+        <Item>250mS</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1C</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>ovuv_scan_rate</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Tsc</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>ov uv scan rate</Description>
+          <Order>10</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031D00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1D</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>1 scan-cycle</Item>
+        <Item>2 scan-cycle</Item>
+        <Item>4 scan-cycle</Item>
+        <Item>8 scan-cycle</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1D</Index>
+          <BitStart>0</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>Tovp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Tovp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>3</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>OV protection delay scan-cycle. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
+          <Order>19</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031D02">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1D</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>1 scan-cycle</Item>
+        <Item>2 scan-cycle</Item>
+        <Item>4 scan-cycle</Item>
+        <Item>8 scan-cycle</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1D</Index>
+          <BitStart>2</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>Tuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Tuvp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>3</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>UV protection delay scan-cycle. </Description>
+          <Order>18</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031D04">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>7</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>7</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1D</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>3</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>50mV</Item>
+        <Item>100mV</Item>
+        <Item>150mV</Item>
+        <Item>200mV</Item>
+        <Item>250mV</Item>
+        <Item>300mV</Item>
+        <Item>350mV</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1D</Index>
+          <BitStart>4</BitStart>
+          <Length>3</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>Vovr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
+        </SFL>
+        <SFL Name="EFUSE Config">
+          <NickName>Vovr-hys</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>7</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Hysteresis for OV protection release. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
+          <Order>17</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00031D07">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>1D</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>1D</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>user_frozen</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032800">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>28</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>2 scan-cycle</Item>
+        <Item>4 scan-cycle</Item>
+        <Item>6 scan-cycle</Item>
+        <Item>8 scan-cycle</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>28</Index>
+          <BitStart>0</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Tot-ut-dly</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Tot-ut-dly</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>3</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>OT/UT protection delay scan-cycle.</Description>
+          <Order>4</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032802">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>1</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>28</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Disable all OT/UT</Item>
+        <Item>80 degree</Item>
+        <Item>85 degree</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>28</Index>
+          <BitStart>2</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>DOT_TH</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>DOT_TH</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>2</MaxValue>
+          <!--<Relations>
+            <Item>0x000c0002</Item>
+          </Relations>-->
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the DOT threshold.</Description>
+          <Order>3</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032804">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>28</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>50 degree</Item>
+        <Item>55 degree</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>28</Index>
+          <BitStart>4</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>COT_TH</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>COT_TH</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the COT threshold.</Description>
+          <Order>2</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032805">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <Offset>0</Offset>
+      <SubType>3</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>7</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>7</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>28</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>3</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>5 cells</Item>
+        <Item>6 cells</Item>
+        <Item>7 cells</Item>
+        <Item>8 cells</Item>
+        <Item>9 cells</Item>
+        <Item>10 cells</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>28</Index>
+          <BitStart>5</BitStart>
+          <Length>3</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>cell num</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Ncell</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>7</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Number of cells in series</Description>
+          <Order>1</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032900">
+      <PhysicalData>0</PhysicalData>
+      <Offset>3900</Offset>
+      <PhyRef>10</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>2</SubType>
+      <HexMin>a</HexMin>
+      <HexMax>3c</HexMax>
+      <PhyMin>3500</PhyMin>
+      <PhyMax>4500</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>29</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>6</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>29</Index>
+          <BitStart>0</BitStart>
+          <Length>6</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Vovp</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Vovp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>4000</DefValue>
+          <MinValue>4000</MinValue>
+          <MaxValue>4500</MaxValue>
+          <EditType>0</EditType>
+          <Format>0</Format>
+          <Description>OV protection threshold for each cell</Description>
+          <Order>6</Order>
+          <Relations>
+            <Item>0x00032d04</Item>
+          </Relations>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032907">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>29</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Do not initiate protection on CHG when UV occurs</Item>
+        <Item>Initiate protection on CHG when UV occurs</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>29</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>UV_ON_CHGPAD</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>UV_ON_CHGPAD</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies whether to initiate protection on CHG when UV occurs.</Description>
+          <Order>5</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032A00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>F</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>15</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2A</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>4</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>1200mV</Item>
+        <Item>1400mV</Item>
+        <Item>1600mV</Item>
+        <Item>1800mV</Item>
+        <Item>1900mV</Item>
+        <Item>2000mV</Item>
+        <Item>2100mV</Item>
+        <Item>2200mV</Item>
+        <Item>2300mV</Item>
+        <Item>2400mV</Item>
+        <Item>2500mV</Item>
+        <Item>2600mV</Item>
+        <Item>2700mV</Item>
+        <Item>2800mV</Item>
+        <Item>2900mV</Item>
+        <Item>3000mV</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2A</Index>
+          <BitStart>0</BitStart>
+          <Length>4</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Vuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Vuvp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>15</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>UV protection threshold for each cell</Description>
+          <Order>9</Order>
+          <Relations>
+            <Item>0x00032a04</Item>
+          </Relations>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032A04">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>7</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>7</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2A</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>3</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>100mV</Item>
+        <Item>200mV</Item>
+        <Item>300mV</Item>
+        <Item>400mV</Item>
+        <Item>500mV</Item>
+        <Item>600mV</Item>
+        <Item>700mV</Item>
+        <Item>800mV</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2A</Index>
+          <BitStart>4</BitStart>
+          <Length>3</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Vuvr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Vuvr-hys</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>7</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Hysteresis for UV release.</Description>
+          <Order>8</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032A07">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2A</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>select OVP range 4.0V~4.5V for Li_ion Cobalt//Monganate type</Item>
+        <Item>select OVP range 3.5V~4.0V for Li_ion Phosphate type</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2A</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>BAT_TYPE</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>BAT_TYPE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Battery type</Description>
+          <Relations>
+            <Item>0x00032900</Item>
+            <Item>0x00032d04</Item>
+            <Item>0x00032a04</Item>
+          </Relations>
+          <Order>7</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032B00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2B</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Open-drain output</Item>
+        <Item>Push-pull output</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2B</Index>
+          <BitStart>0</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>DSGPAD_TYPE</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>DSGPAD_TYPE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output type of DSG. Only effective for the CMOS type IC.</Description>
+          <Order>f</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032B01">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2B</Address>
+          <StartBit>1</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>DSG outputs Low when no events (i.e. outputs Hi-Z or High when events occur)</Item>
+        <Item>DSG outputs Hi-Z or High when no events (i.e. outputs Low when events occur)</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2B</Index>
+          <BitStart>1</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>DSGPAD_ACTIVE_O</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>DSGPAD_ACTIVE_O</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output state of DSG when protection events occur.</Description>
+          <Order>e</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032B02">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2B</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Open-drain output</Item>
+        <Item>Push-pull output</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2B</Index>
+          <BitStart>2</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>CHGPAD_TYPE</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>CHGPAD_TYPE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output type of CHG. Only effective for the CMOS type IC.</Description>
+          <Order>d</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032B03">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2B</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>CHG outputs Low when no events (i.e. outputs Hi-Z or High when events occur)</Item>
+        <Item>CHG outputs Hi-Z or High when no events (i.e. outputs Low when events occur)</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2B</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>CHGPAD_ACTIVE_O</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>CHGPAD_ACTIVE_O</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies the output state of CHG when protection events occur.</Description>
+          <Order>c</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032B05">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2B</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>Output the 20Hz square wave on SDA with internal weak pull-up when DOT occurs</Item>
+        <Item>Don not output the 20Hz square wave on SDA when DOT occurs</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2B</Index>
+          <BitStart>5</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>DOT_ON_SDA_DIS</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>DOT_ON_SDA_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable the 20Hz square wave output on SDA when DOT occurs. Only effective in Standalone mode.</Description>
+          <Order>b</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032B06">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2B</Address>
+          <StartBit>6</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>share THM when SDA is high pulse and dot_on_sda function (i.e. dot_on_sda_disable=1), but internal OT/UT check always has higher priority, that means internal OT/UT check always runs regularly, THM can’t be shared until internal OT/UT finished</Item>
+        <Item>share THM when SDA is high pulse and no dot_on_sda function (i.e. dot_on_sda_disable=1), in this case, THM can’t be used for internal OT/UT check until SDA high pulse end or timeout</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2B</Index>
+          <BitStart>6</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>THM_SHARE</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>THM_SHARE</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>It specifies how to share the thermal resistor with the Microcontroller. Only effective in Standalone mode</Description>
+          <Order>a</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032C00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2C</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable UV check</Item>
+        <Item>disable UV check</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2C</Index>
+          <BitStart>0</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>uv_disable</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>UVP_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable uv check</Description>
+          <Order>16</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032C01">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2C</Address>
+          <StartBit>1</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable DOT function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2C</Index>
+          <BitStart>1</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>dot_disable</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>DOT_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable dot function</Description>
+          <Order>15</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032C02">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2C</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable COT function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2C</Index>
+          <BitStart>2</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>cot_disable</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>COT_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable cot function</Description>
+          <Order>14</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032C03">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2C</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable CUT function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2C</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>cut_disable</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>CUT_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable cut function</Description>
+          <Order>13</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032C04">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2C</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>enable (default)</Item>
+        <Item>disable CTO function</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2C</Index>
+          <BitStart>4</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>cto_disable</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>CTO_DIS</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Disable or enable cto function</Description>
+          <Order>12</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032C05">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2C</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>active low for alert</Item>
+        <Item>active high for alert</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2C</Index>
+          <BitStart>5</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>alert_option</Description>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>ALERT_OPTION</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>alert_option</Description>
+          <Order>11</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032C07">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2C</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>125mS</Item>
+        <Item>250mS</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2C</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>ovuv_scan_rate</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Tsc</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>1</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>ov uv scan rate</Description>
+          <Order>10</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032D00">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2D</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>1 scan-cycle</Item>
+        <Item>2 scan-cycle</Item>
+        <Item>4 scan-cycle</Item>
+        <Item>8 scan-cycle</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2D</Index>
+          <BitStart>0</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Tovp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Tovp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>3</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>OV protection delay scan-cycle. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
+          <Order>19</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032D02">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2D</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>1 scan-cycle</Item>
+        <Item>2 scan-cycle</Item>
+        <Item>4 scan-cycle</Item>
+        <Item>8 scan-cycle</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2D</Index>
+          <BitStart>2</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Tuvp</Description>
+          <bPhyDataFromList>true</bPhyDataFromList>
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Tuvp</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>3</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>UV protection delay scan-cycle. </Description>
+          <Order>18</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032D04">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>7</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>7</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2D</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>3</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>50mV</Item>
+        <Item>100mV</Item>
+        <Item>150mV</Item>
+        <Item>200mV</Item>
+        <Item>250mV</Item>
+        <Item>300mV</Item>
+        <Item>350mV</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2D</Index>
+          <BitStart>4</BitStart>
+          <Length>3</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>Vovr-hys</Description>
+          <!--<bPhyDataFromList>true</bPhyDataFromList>-->
+        </SFL>
+        <SFL Name="Register Config">
+          <NickName>Vovr-hys</NickName>
+          <Catalog>Woodpecker10</Catalog>
+          <DefValue>0</DefValue>
+          <MinValue>0</MinValue>
+          <MaxValue>7</MaxValue>
+          <EditType>1</EditType>
+          <Format>0</Format>
+          <Description>Hysteresis for OV protection release. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
+          <Order>17</Order>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00032D07">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>2D</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>2D</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>user_frozen</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033500">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>35</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>35</Index>
+          <BitStart>0</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>uvp_state</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033501">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>35</Address>
+          <StartBit>1</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>35</Index>
+          <BitStart>1</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>ovp_state</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033502">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>35</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>35</Index>
+          <BitStart>2</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>dotp_state</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033503">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>35</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>35</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cotp_state</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033504">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>35</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>35</Index>
+          <BitStart>4</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cutp_state</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033505">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>35</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>35</Index>
+          <BitStart>5</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cto_state</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033800">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>38</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>38</Index>
+          <BitStart>0</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>uvp_flag</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033801">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>38</Address>
+          <StartBit>1</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>38</Index>
+          <BitStart>1</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>ovp_flag</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033802">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>38</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>38</Index>
+          <BitStart>2</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>dotp_flag</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033803">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>38</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>38</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cotp_flag</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033804">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>38</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>38</Index>
+          <BitStart>4</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cutp_flag</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033805">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>38</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>38</Index>
+          <BitStart>5</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>cto_flag</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033807">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>38</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>38</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>i2c_timeout_flag</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033900">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>39</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>39</Index>
+          <BitStart>0</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>sw_ext_thm_cfg</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033903">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>39</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>39</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>sw_mapping_req</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033907">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>39</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <ItemList>
+        <Item>disable Software Release</Item>
+        <Item>enable Software Release</Item>
+      </ItemList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>39</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>SW_RELEASE</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033A02">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>3A</Address>
+          <StartBit>2</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>3A</Index>
+          <BitStart>2</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>chgpad_out</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00033A03">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>3A</Address>
+          <StartBit>3</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>3A</Index>
+          <BitStart>3</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>false</Write>
+          <Group>Woodpecker10</Group>
+          <Description>dsgpad_out</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00034000">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>3</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>3</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>40</Address>
+          <StartBit>0</StartBit>
+          <BitsNumber>2</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>40</Index>
+          <BitStart>0</BitStart>
+          <Length>2</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>efuse_mode</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00034004">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>40</Address>
+          <StartBit>4</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>40</Index>
+          <BitStart>4</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>sw_speedup_enable</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00034005">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>40</Address>
+          <StartBit>5</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>40</Index>
+          <BitStart>5</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>mapping_disable</Description>
+        </SFL>
+      </Private>
+    </Element>
+    <Element Guid="0x00034007">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>40</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>40</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Woodpecker10</Group>
+          <Description>allow_wr</Description>
+        </SFL>
+      </Private>
+    </Element>
+  </Section>
+  <Section Name="Virtual" Guid="0x000c0000">
+  </Section>
+</Root>

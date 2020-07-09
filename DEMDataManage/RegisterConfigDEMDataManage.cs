@@ -13,48 +13,48 @@ namespace O2Micro.Cobra.Woodpecker10
         {
         }
         bool FromHexToPhy = false;
-        private void UpdateDOTE(ref Parameter pDOT_E)
-        {
-            Parameter pDOT = new Parameter();
-            switch (pDOT_E.guid)
-            {
-                case ElementDefine.E_DOT_E:
-                    pDOT = parent.parent.pE_DOT_TH;
-                    break;
-                case ElementDefine.O_DOT_E:
-                    pDOT = parent.parent.pO_DOT_TH;
-                    break;
-            }
+        //private void UpdateDOTE(ref Parameter pDOT_E)
+        //{
+        //    Parameter pDOT = new Parameter();
+        //    switch (pDOT_E.guid)
+        //    {
+        //        case ElementDefine.E_DOT_E:
+        //            pDOT = parent.parent.pE_DOT_TH;
+        //            break;
+        //        case ElementDefine.O_DOT_E:
+        //            pDOT = parent.parent.pO_DOT_TH;
+        //            break;
+        //    }
 
-            if (pDOT_E.phydata == 1)                     //pDOT_E.phydata是1的情况下，DOT变化了，那肯定是在读芯片, pDOT.hexdata已经是准确的了
-            {
-                if (pDOT.hexdata < 2)
-                {
-                    pDOT_E.phydata = 1;
-                }
-                else
-                {
-                    pDOT_E.phydata = 0;
-                }
-            }
-            else if (pDOT_E.phydata == 0)               //pDOT_E.phydata是0的情况下，DOT变化了，有可能是读芯片，也可能是UI操作
-            {
-                //如果是读芯片，那么就还是直接使用hexdata
-                if (FromHexToPhy)
-                {
-                    if (pDOT.hexdata < 2)
-                    {
-                        pDOT_E.phydata = 1;
-                    }
-                    else
-                    {
-                        pDOT_E.phydata = 0;
-                    }
-                }
-                //*/
-                //如果是UI操作，那么就什么都不用做
-            }
-        }
+        //    if (pDOT_E.phydata == 1)                     //pDOT_E.phydata是1的情况下，DOT变化了，那肯定是在读芯片, pDOT.hexdata已经是准确的了
+        //    {
+        //        if (pDOT.hexdata < 2)
+        //        {
+        //            pDOT_E.phydata = 1;
+        //        }
+        //        else
+        //        {
+        //            pDOT_E.phydata = 0;
+        //        }
+        //    }
+        //    else if (pDOT_E.phydata == 0)               //pDOT_E.phydata是0的情况下，DOT变化了，有可能是读芯片，也可能是UI操作
+        //    {
+        //        //如果是读芯片，那么就还是直接使用hexdata
+        //        if (FromHexToPhy)
+        //        {
+        //            if (pDOT.hexdata < 2)
+        //            {
+        //                pDOT_E.phydata = 1;
+        //            }
+        //            else
+        //            {
+        //                pDOT_E.phydata = 0;
+        //            }
+        //        }
+        //        //*/
+        //        //如果是UI操作，那么就什么都不用做
+        //    }
+        //}
 
         private void UpdateDOT(ref Parameter pDOT)
         {
@@ -235,10 +235,10 @@ namespace O2Micro.Cobra.Woodpecker10
             Parameter source = new Parameter();
             switch (pTarget.guid)
             {
-                case ElementDefine.E_DOT_E:
-                case ElementDefine.O_DOT_E:
-                    UpdateDOTE(ref pTarget);
-                    break;
+                //case ElementDefine.E_DOT_E:
+                //case ElementDefine.O_DOT_E:
+                //    UpdateDOTE(ref pTarget);
+                //    break;
                 case ElementDefine.E_DOT_TH:
                     //UpdateThType(ref pTarget);
                     break;
@@ -303,24 +303,25 @@ namespace O2Micro.Cobra.Woodpecker10
                         WriteToRegImgError(p, ret);
                     break;
                 case ElementDefine.SUBTYPE.DOT_TH:
-                    Parameter pDOT_E = new Parameter();
-                    switch (p.guid)
-                    {
-                        case ElementDefine.O_DOT_TH:
-                            pDOT_E = parent.parent.pO_DOT_E;
-                            break;
-                        case ElementDefine.E_DOT_TH:
-                            pDOT_E = parent.parent.pE_DOT_E;
-                            break;
-                    }
-                    if (pDOT_E.phydata == 1)    //Disable
-                    {
-                        wdata = 0;
-                    }
-                    else if (pDOT_E.phydata == 0)   //Enable
-                    {
-                        wdata = (ushort)(p.phydata + 2);
-                    }
+                    //Parameter pDOT_E = new Parameter();
+                    //switch (p.guid)
+                    //{
+                    //    case ElementDefine.O_DOT_TH:
+                    //        pDOT_E = parent.parent.pO_DOT_E;
+                    //        break;
+                    //    case ElementDefine.E_DOT_TH:
+                    //        pDOT_E = parent.parent.pE_DOT_E;
+                    //        break;
+                    //}
+                    //if (pDOT_E.phydata == 1)    //Disable
+                    //{
+                    //    wdata = 0;
+                    //}
+                    //else if (pDOT_E.phydata == 0)   //Enable
+                    //{
+                    //    wdata = (ushort)(p.phydata + 2);
+                    //}
+                    wdata = (ushort)(p.phydata + 1);
                     ret = WriteToRegImg(p, wdata);
                     if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                         WriteToRegImgError(p, ret);
@@ -368,8 +369,8 @@ namespace O2Micro.Cobra.Woodpecker10
                         p.phydata = ElementDefine.PARAM_PHYSICAL_ERROR;
                         break;
                     }
-                    if (wdata >= 2)
-                        p.phydata = wdata - 2;
+                    if (wdata >= 1)
+                        p.phydata = wdata - 1;
                     else
                         p.phydata = 0;
                     break;

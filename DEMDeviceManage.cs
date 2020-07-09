@@ -53,12 +53,12 @@ namespace O2Micro.Cobra.Woodpecker10
 
         public Parameter pE_BAT_TYPE = new Parameter();
         public Parameter pE_DOT_TH = new Parameter();
-        public Parameter pE_DOT_E = new Parameter();
+        //public Parameter pE_DOT_E = new Parameter();
         public Parameter pE_OVP_TH = new Parameter();
         public Parameter pE_UVP_TH = new Parameter();
         public Parameter pO_BAT_TYPE = new Parameter();
         public Parameter pO_DOT_TH = new Parameter();
-        public Parameter pO_DOT_E = new Parameter();
+        //public Parameter pO_DOT_E = new Parameter();
         public Parameter pO_OVP_TH = new Parameter();
         public Parameter pO_UVP_TH = new Parameter();
         //public bool fromCFG = false;
@@ -89,8 +89,8 @@ namespace O2Micro.Cobra.Woodpecker10
             pE_UVP_TH = pc.GetParameterByGuid(ElementDefine.E_UVP_TH);
             pO_UVP_TH = pc.GetParameterByGuid(ElementDefine.O_UVP_TH);
             pc = m_Section_ParamlistContainer.GetParameterListByGuid(ElementDefine.VirtualElement);
-            pE_DOT_E = pc.GetParameterByGuid(ElementDefine.E_DOT_E);
-            pO_DOT_E = pc.GetParameterByGuid(ElementDefine.O_DOT_E);
+            //pE_DOT_E = pc.GetParameterByGuid(ElementDefine.E_DOT_E);
+            //pO_DOT_E = pc.GetParameterByGuid(ElementDefine.O_DOT_E);
         }
 
         //public void Physical2Hex(ref Parameter param)
@@ -234,6 +234,19 @@ namespace O2Micro.Cobra.Woodpecker10
                         ret = m_efuse_config_dem_bm.Command(ref bgworker);
                         break;
                     }
+                //case ElementDefine.COMMAND.MP_BIN_FILE_CHECK:
+                //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK_PC:
+                //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK:
+                //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK_PC:
+                //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK:
+                //case ElementDefine.COMMAND.MP_DOWNLOAD_PC:
+                //case ElementDefine.COMMAND.MP_DOWNLOAD:
+                //case ElementDefine.COMMAND.MP_READ_BACK_CHECK_PC:
+                //case ElementDefine.COMMAND.MP_READ_BACK_CHECK:
+                //    {
+                //        ret = m_mass_production_dem_bm.Command(ref bgworker);
+                //        break;
+                //    }
             }
             return ret;
         }

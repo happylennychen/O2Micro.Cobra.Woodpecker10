@@ -29,27 +29,16 @@ namespace O2Micro.Cobra.Woodpecker10
                         WriteToRegImgError(p, ret);
                     break;
                 case ElementDefine.SUBTYPE.DOT_TH:
-                    Parameter pDOT_E = new Parameter();
-                    switch (p.guid)
-                    {
-                        case ElementDefine.O_DOT_TH:
-                            pDOT_E = parent.parent.pO_DOT_E;
-                            break;
-                        case ElementDefine.E_DOT_TH:
-                            pDOT_E = parent.parent.pE_DOT_E;
-                            break;
-                    }
-                    if (pDOT_E.phydata == 1)    //Disable
-                    {
-                        wdata = 0;
-                    }
-                    else if (pDOT_E.phydata == 0)   //Enable
-                    {
-                        wdata = (ushort)(p.phydata + 2);
-                    }
-                    ret = WriteToRegImg(p, wdata);
+                    ret = ReadFromRegImg(p, ref wdata);
                     if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
-                        WriteToRegImgError(p, ret);
+                    {
+                        p.phydata = ElementDefine.PARAM_PHYSICAL_ERROR;
+                        break;
+                    }
+                    if (wdata >= 1)
+                        p.phydata = wdata - 1;
+                    else
+                        p.phydata = 0;
                     break;
                 default:
                     dtmp = p.phydata - p.offset;
@@ -87,18 +76,18 @@ namespace O2Micro.Cobra.Woodpecker10
                     else
                         p.phydata = 0;
                     break;
-                //case ElementDefine.SUBTYPE.DOT_TH:
-                //    ret = ReadFromRegImg(p, ref wdata);
-                //    if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
-                //    {
-                //        p.phydata = ElementDefine.PARAM_PHYSICAL_ERROR;
-                //        break;
-                //    }
-                //    if (wdata >= 2)
-                //        p.phydata = wdata - 2;
-                //    else
-                //        p.phydata = 0;
-                //    break;
+                case ElementDefine.SUBTYPE.DOT_TH:
+                    ret = ReadFromRegImg(p, ref wdata);
+                    if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                    {
+                        p.phydata = ElementDefine.PARAM_PHYSICAL_ERROR;
+                        break;
+                    }
+                    if (wdata >= 1)
+                        p.phydata = wdata - 1;
+                    else
+                        p.phydata = 0;
+                    break;
                 case ElementDefine.SUBTYPE.OVP:
                     ret = ReadFromRegImg(p, ref wdata);
                     if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)

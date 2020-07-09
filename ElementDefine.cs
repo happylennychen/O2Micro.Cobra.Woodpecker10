@@ -72,8 +72,8 @@ namespace O2Micro.Cobra.Woodpecker10
         #region Virtual parameters
         internal const UInt32 VirtualElement = 0x000c0000;
 
-        internal const UInt32 E_DOT_E = 0x000c0001; //Efuse T Enable
-        internal const UInt32 O_DOT_E = 0x000c0002; //OP T Enable
+        //internal const UInt32 E_DOT_E = 0x000c0001; //Efuse T Enable
+        //internal const UInt32 O_DOT_E = 0x000c0002; //OP T Enable
         #endregion
 
         #region EFUSE操作常量定义
@@ -92,7 +92,7 @@ namespace O2Micro.Cobra.Woodpecker10
         // EFUSE Control Flags
         internal const byte ALLOW_WR_FLAG = 0x80;
         internal const byte EFUSE_FROZEN_FLAG = 0x80;
-        internal const UInt16 EF_TOTAL_PARAMS = 27; //需要修改
+        internal const UInt16 EF_TOTAL_PARAMS = 25; //需要修改
         #endregion
 
 
