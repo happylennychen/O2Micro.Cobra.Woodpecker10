@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("O2Micro.Cobra.Woodpecker10")]
+[assembly: AssemblyTitle("Cobra.Woodpecker10")]
 [assembly: AssemblyDescription("OCEWDPXY")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("O2Micro")]
-[assembly: AssemblyProduct("O2Micro.Cobra.Woodpecker10")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Cobra.Woodpecker10")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

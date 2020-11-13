@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.ComponentModel;
-using O2Micro.Cobra.Communication;
-using O2Micro.Cobra.Common;
+using Cobra.Communication;
+using Cobra.Common;
 using System.IO;
 
-namespace O2Micro.Cobra.Woodpecker10
+namespace Cobra.Woodpecker10
 {
     internal class RegisterConfigDEMBehaviorManage:DEMBehaviorManageBase
     {

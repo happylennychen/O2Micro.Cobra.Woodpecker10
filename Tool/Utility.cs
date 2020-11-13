@@ -1,10 +1,10 @@
-﻿using O2Micro.Cobra.Common;
+﻿using Cobra.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace O2Micro.Cobra.Woodpecker10
+namespace Cobra.Woodpecker10
 {
     public static class Utility
     {
