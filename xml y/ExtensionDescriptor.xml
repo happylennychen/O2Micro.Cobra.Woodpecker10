@@ -30,18 +30,5 @@
         <SaveHex>18</SaveHex>
       </SubTask>
     </Button>
-    <Button Label = "Mass Production" DBModuleName="Production"  Name = "Production" ShowVerify="True" ShowConfig="True" ShowHEX="True"  PanelName ="Cobra.ProductionPanel">
-      <Process>
-        <Item SubTaskID="9" RadioOption="0">Chip Frozen Check(PC)</Item>
-        <Item SubTaskID="10" RadioOption="1">Chip Frozen Check</Item>
-        <Item SubTaskID="11" RadioOption="0">Chip Dirty Check(PC)</Item>
-        <Item SubTaskID="12" RadioOption="1">Chip Dirty Check</Item>
-        <Item SubTaskID="13" RadioOption="0">Download(PC)</Item>
-        <Item SubTaskID="14" RadioOption="1">Download</Item>
-        <Item SubTaskID="15" RadioOption="0">Read Back Check(PC)</Item>
-        <Item SubTaskID="16" RadioOption="1">Read Back Check</Item>
-      </Process>
-      <BinFileCheck SubTaskID="21"></BinFileCheck>
-    </Button>
   </Part>
 </Root>
