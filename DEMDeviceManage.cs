@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define debug
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,11 +56,14 @@ namespace Cobra.Woodpecker10
         //public Parameter pE_DOT_E = new Parameter();
         public Parameter pE_OVP_TH = new Parameter();
         public Parameter pE_UVP_TH = new Parameter();
+        public Parameter pE_TRIM_RSVD = new Parameter();
+
         public Parameter pO_BAT_TYPE = new Parameter();
         public Parameter pO_DOT_TH = new Parameter();
         //public Parameter pO_DOT_E = new Parameter();
         public Parameter pO_OVP_TH = new Parameter();
         public Parameter pO_UVP_TH = new Parameter();
+        public Parameter pO_TRIM_RSVD = new Parameter();
         //public bool fromCFG = false;
 
         #endregion
@@ -87,6 +91,8 @@ namespace Cobra.Woodpecker10
             pO_OVP_TH = pc.GetParameterByGuid(ElementDefine.O_OVP_TH);
             pE_UVP_TH = pc.GetParameterByGuid(ElementDefine.E_UVP_TH);
             pO_UVP_TH = pc.GetParameterByGuid(ElementDefine.O_UVP_TH);
+            pE_TRIM_RSVD = pc.GetParameterByGuid(ElementDefine.E_TRIM_RSVD);
+            pO_TRIM_RSVD = pc.GetParameterByGuid(ElementDefine.O_TRIM_RSVD);
             pc = m_Section_ParamlistContainer.GetParameterListByGuid(ElementDefine.VirtualElement);
             //pE_DOT_E = pc.GetParameterByGuid(ElementDefine.E_DOT_E);
             //pO_DOT_E = pc.GetParameterByGuid(ElementDefine.O_DOT_E);
@@ -110,7 +116,7 @@ namespace Cobra.Woodpecker10
             //EFParamlist = devicedescriptionlist.GetParameterListByGuid(ElementDefine.EFUSEElement);
             //if (EFParamlist == null) return;
 
-            OPParamlist = devicedescriptionlist.GetParameterListByGuid(ElementDefine.OperationElement);
+            OPParamlist = devicedescriptionlist.GetParameterListByGuid(ElementDefine.MappingElement);
             if (OPParamlist == null) return;
 
             //pullupR = tempParamlist.GetParameterByGuid(ElementDefine.TpETPullupR).phydata;
@@ -147,7 +153,7 @@ namespace Cobra.Woodpecker10
             SectionParameterListInit(ref deviceParamlistContainer);
 
             //m_HwMode_RegList.Add(ElementDefine.EFUSEElement, m_EFRegImg);
-            m_HwMode_RegList.Add(ElementDefine.OperationElement, m_OpRegImg);
+            m_HwMode_RegList.Add(ElementDefine.MappingElement, m_OpRegImg);
 
             SharedAPI.ReBuildBusOptions(ref busoptions, ref deviceParamlistContainer);
 
@@ -199,7 +205,11 @@ namespace Cobra.Woodpecker10
 
         public UInt32 GetDeviceInfor(ref DeviceInfor deviceinfor)
         {
+#if debug
+            return LibErrorCode.IDS_ERR_SUCCESSFUL;
+#else
             return m_dem_bm_base.GetDeviceInfor(ref deviceinfor);
+#endif
         }
 
         public UInt32 Erase(ref TASKMessage bgworker)
@@ -222,6 +232,7 @@ namespace Cobra.Woodpecker10
                 case ElementDefine.COMMAND.REGISTER_CONFIG_WRITE:
                 case ElementDefine.COMMAND.REGISTER_CONFIG_READ:
                     {
+                        bgworker.task_parameterlist.parameterlist.Add(pO_TRIM_RSVD);
                         ret = m_register_config_dem_bm.Command(ref bgworker);
                         break;
                     }
@@ -229,6 +240,7 @@ namespace Cobra.Woodpecker10
                 case ElementDefine.COMMAND.EFUSE_CONFIG_READ:
                 case ElementDefine.COMMAND.EFUSE_CONFIG_SAVE_EFUSE_HEX:
                     {
+                        bgworker.task_parameterlist.parameterlist.Add(pE_TRIM_RSVD);
                         ret = m_efuse_config_dem_bm.Command(ref bgworker);
                         break;
                     }
@@ -290,14 +302,20 @@ namespace Cobra.Woodpecker10
 
         public UInt32 GetSystemInfor(ref TASKMessage bgworker)
         {
+#if debug
+            return LibErrorCode.IDS_ERR_SUCCESSFUL;
+#endif
             return m_dem_bm_base.GetSystemInfor(ref bgworker);
         }
 
         public UInt32 GetRegisteInfor(ref TASKMessage bgworker)
         {
+#if debug
+            return LibErrorCode.IDS_ERR_SUCCESSFUL;
+#endif
             return m_dem_bm_base.GetRegisteInfor(ref bgworker);
         }
-        #endregion
+#endregion
     }
 }
 

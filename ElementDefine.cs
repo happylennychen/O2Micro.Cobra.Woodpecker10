@@ -48,17 +48,19 @@ namespace Cobra.Woodpecker10
         #endregion
 
         #region Efuse参数GUID
-        //internal const UInt32 EFUSEElement = 0x00020000;    //0x10~0x1f
+        internal const UInt32 EFUSEElement = 0x00031000;    //0x10~0x1f
         internal const UInt32 E_BAT_TYPE = 0x00031a07;
         internal const UInt32 E_OVP_TH = 0x00031900;
         internal const UInt32 E_DOT_TH = 0x00031802;
         internal const UInt32 E_OVR_HYS = 0x00031d04;
         internal const UInt32 E_UVR_HYS = 0x00031a04;
         internal const UInt32 E_UVP_TH = 0x00031a00;
+        internal const UInt32 E_TRIM_RSVD = 0x00031007;
         #endregion
 
         #region Operation参数GUID
         internal const UInt32 OperationElement = 0x00030000;    //0x30~0xff
+        internal const UInt32 MappingElement = 0x00032000;    //0x30~0xff
 
         internal const UInt32 O_BAT_TYPE = 0x00032a07;
         internal const UInt32 O_OVP_TH = 0x00032900;
@@ -66,6 +68,7 @@ namespace Cobra.Woodpecker10
         internal const UInt32 O_OVR_HYS = 0x00032d04;
         internal const UInt32 O_UVR_HYS = 0x00032a04;
         internal const UInt32 O_UVP_TH = 0x00032a00;
+        internal const UInt32 O_TRIM_RSVD = 0x00032007;
 
         #endregion
 

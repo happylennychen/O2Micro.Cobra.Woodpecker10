@@ -186,6 +186,8 @@ namespace Cobra.Woodpecker10
 
         private void InitEfuseData()
         {
+            parent.m_OpRegImg[0x10].err = 0;
+            parent.m_OpRegImg[0x10].val = 0;
             for (ushort i = ElementDefine.EF_USR_OFFSET; i <= ElementDefine.EF_USR_TOP; i++)
             {
                 parent.m_OpRegImg[i].err = 0;
@@ -196,6 +198,9 @@ namespace Cobra.Woodpecker10
         private UInt32 GetEfuseHexData(ref TASKMessage msg)
         {
             string tmp = "";
+            if (parent.m_OpRegImg[0x10].err != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                return parent.m_OpRegImg[0x10].err;
+            tmp += "0x" + (0x10).ToString("X2") + ", " + "0x" + parent.m_OpRegImg[0x10].val.ToString("X2") + "\r\n";
             for (ushort i = ElementDefine.EF_USR_OFFSET; i <= ElementDefine.EF_USR_TOP; i++)
             {
                 if (parent.m_OpRegImg[i].err != LibErrorCode.IDS_ERR_SUCCESSFUL)
@@ -209,6 +214,10 @@ namespace Cobra.Woodpecker10
         private UInt32 GetEfuseBinData(ref TASKMessage msg)
         {
             List<byte> tmp = new List<byte>();
+            if (parent.m_OpRegImg[0x10].err != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                return parent.m_OpRegImg[0x10].err;
+            tmp.Add((byte)0x10);
+            tmp.Add((byte)(parent.m_OpRegImg[0x10].val));
             for (ushort i = ElementDefine.EF_USR_OFFSET; i <= ElementDefine.EF_USR_TOP; i++)
             {
                 if (parent.m_OpRegImg[i].err != LibErrorCode.IDS_ERR_SUCCESSFUL)

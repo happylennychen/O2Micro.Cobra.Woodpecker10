@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Cobra.Common;
 
 namespace Cobra.Woodpecker10
@@ -269,6 +270,8 @@ namespace Cobra.Woodpecker10
             UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
 
             if (p == null) return;
+            if (p == parent.parent.pO_TRIM_RSVD) return;
+            if (p == parent.parent.pE_TRIM_RSVD) return;
             /*if (parent.fromCFG == true)
             {
                 if (p.guid == ElementDefine.E_DOT)
@@ -321,10 +324,61 @@ namespace Cobra.Woodpecker10
                     //{
                     //    wdata = (ushort)(p.phydata + 2);
                     //}
-                    wdata = (ushort)(p.phydata + 1);
-                    ret = WriteToRegImg(p, wdata);
-                    if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
-                        WriteToRegImgError(p, ret);
+                    Parameter trim_rsvd;
+                    if ((p.guid & ElementDefine.MappingElement) == ElementDefine.MappingElement)
+                    {
+                        trim_rsvd = parent.parent.pO_TRIM_RSVD;
+                    }
+                    else if ((p.guid & ElementDefine.EFUSEElement) == ElementDefine.EFUSEElement)
+                    {
+                        trim_rsvd = parent.parent.pE_TRIM_RSVD;
+                    }
+                    else
+                    {
+                        MessageBox.Show("DOT physical to hex error!");
+                        break;
+                    }
+                    if (p.phydata == 0) //Disable
+                    {
+                        wdata = 0;
+                        ret = WriteToRegImg(p, wdata);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            WriteToRegImgError(p, ret);
+                    }
+                    else if (p.phydata == 1)    //75 degree
+                    {
+                        wdata = 2;
+                        ret = WriteToRegImg(p, wdata);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            WriteToRegImgError(p, ret);
+                        wdata = 1;
+                        ret = WriteToRegImg(trim_rsvd, wdata);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            WriteToRegImgError(trim_rsvd, ret);
+                    }
+                    else if (p.phydata == 2)    //80 degree
+                    {
+                        wdata = 2;
+                        ret = WriteToRegImg(p, wdata);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            WriteToRegImgError(p, ret);
+                        wdata = 0;
+                        ret = WriteToRegImg(trim_rsvd, wdata);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            WriteToRegImgError(trim_rsvd, ret);
+                    }
+                    else if (p.phydata == 3)    //85 degree
+                    {
+                        wdata = 3;
+                        ret = WriteToRegImg(p, wdata);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            WriteToRegImgError(p, ret);
+                        wdata = 0;
+                        ret = WriteToRegImg(trim_rsvd, wdata);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            WriteToRegImgError(trim_rsvd, ret);
+                    }
+
                     break;
                 default:
                     dtmp = p.phydata - p.offset;
@@ -363,16 +417,53 @@ namespace Cobra.Woodpecker10
                         p.phydata = 0;
                     break;
                 case ElementDefine.SUBTYPE.DOT_TH:
+                    Parameter trim_rsvd;
+                    if ((p.guid & ElementDefine.MappingElement) == ElementDefine.MappingElement)
+                    {
+                        trim_rsvd = parent.parent.pO_TRIM_RSVD;
+                    }
+                    else if ((p.guid & ElementDefine.EFUSEElement) == ElementDefine.EFUSEElement)
+                    {
+                        trim_rsvd = parent.parent.pE_TRIM_RSVD;
+                    }
+                    else
+                    {
+                        MessageBox.Show("DOT physical to hex error!");
+                        break;
+                    }
                     ret = ReadFromRegImg(p, ref wdata);
                     if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                     {
                         p.phydata = ElementDefine.PARAM_PHYSICAL_ERROR;
                         break;
                     }
-                    if (wdata >= 1)
-                        p.phydata = wdata - 1;
-                    else
-                        p.phydata = 0;
+                    ushort u_trim_rsv = 0;
+                    ret = ReadFromRegImg(trim_rsvd, ref u_trim_rsv);
+                    if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                    {
+                        trim_rsvd.phydata = ElementDefine.PARAM_PHYSICAL_ERROR;
+                        break;
+                    }
+                    if (wdata == 0 || wdata == 1)
+                    {
+                        p.phydata = 0;  //Disable
+                    }
+                    else if (wdata == 2 && u_trim_rsv == 1)
+                    {
+                        p.phydata = 1;  //75
+                    }
+                    else if ((wdata == 2 && u_trim_rsv == 0) || (wdata == 3 && u_trim_rsv == 1))
+                    {
+                        p.phydata = 2;  //80
+                    }
+                    else if (wdata == 3 && u_trim_rsv == 0)
+                    {
+                        p.phydata = 3;  //85
+                    }
+                    //if (wdata >= 1)
+                    //    p.phydata = wdata - 1;
+                    //else
+                    //    p.phydata = 0;
                     break;
                 case ElementDefine.SUBTYPE.OVP:
                     ret = ReadFromRegImg(p, ref wdata);

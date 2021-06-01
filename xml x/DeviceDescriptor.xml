@@ -314,6 +314,37 @@
         </SFL>
       </Private>
     </Element>
+    <Element Guid="0x00031007">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>10</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>10</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>TRIM_RSVD</Description>
+        </SFL>
+      </Private>
+    </Element>
     <Element Guid="0x00031800">
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
@@ -380,7 +411,8 @@
         </Location>
       </LocationList>
       <ItemList>
-        <Item>Disable all OT/UT</Item>
+      	<Item>Disable all OT/UT</Item>
+        <Item>75 degree</Item>
         <Item>80 degree</Item>
         <Item>85 degree</Item>
       </ItemList>
@@ -402,7 +434,7 @@
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
-          <MaxValue>2</MaxValue>
+          <MaxValue>3</MaxValue>
           <!--<Relations>
             <Item>0x000c0001</Item>
           </Relations>-->
@@ -1552,6 +1584,37 @@
         </SFL>
       </Private>
     </Element>
+    <Element Guid="0x00032007">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>20</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>20</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>Mapping</Group>
+          <Description>TRIM_RSVD</Description>
+        </SFL>
+      </Private>
+    </Element>
     <Element Guid="0x00032800">
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
@@ -1619,6 +1682,7 @@
       </LocationList>
       <ItemList>
         <Item>Disable all OT/UT</Item>
+        <Item>75 degree</Item>
         <Item>80 degree</Item>
         <Item>85 degree</Item>
       </ItemList>
@@ -1640,7 +1704,7 @@
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
-          <MaxValue>2</MaxValue>
+          <MaxValue>3</MaxValue>
           <!--<Relations>
             <Item>0x000c0002</Item>
           </Relations>-->

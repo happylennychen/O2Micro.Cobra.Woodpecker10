@@ -345,6 +345,37 @@
         </SFL>
       </Private>
     </Element>
+    <Element Guid="0x00031007">
+      <PhysicalData>0</PhysicalData>
+      <PhyRef>1</PhyRef>
+      <RegRef>1</RegRef>
+      <SubType>0</SubType>
+      <HexMin>0</HexMin>
+      <HexMax>1</HexMax>
+      <PhyMin>0</PhyMin>
+      <PhyMax>1</PhyMax>
+      <LocationList>
+        <Location Position="Low">
+          <Address>10</Address>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
+        </Location>
+      </LocationList>
+      <Private>
+        <SFL Name="Expert">
+          <CustomerMode>true</CustomerMode>
+          <BitTotal>8</BitTotal>
+          <Index>10</Index>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
+          <Value>0</Value>
+          <Read>true</Read>
+          <Write>true</Write>
+          <Group>EFUSE</Group>
+          <Description>TRIM_RSVD</Description>
+        </SFL>
+      </Private>
+    </Element>
     <Element Guid="0x00031100">
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
@@ -824,7 +855,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>OT/UT protection delay scan-cycle.</Description>
-          <Order>10</Order>
+          <Order>4</Order>
         </SFL>
       </Private>
     </Element>
@@ -845,6 +876,8 @@
         </Location>
       </LocationList>
       <ItemList>
+      	<Item>Disable all OT/UT</Item>
+        <Item>75 degree</Item>
         <Item>80 degree</Item>
         <Item>85 degree</Item>
       </ItemList>
@@ -866,14 +899,14 @@
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
-          <MaxValue>1</MaxValue>
-          <Relations>
+          <MaxValue>3</MaxValue>
+          <!--<Relations>
             <Item>0x000c0001</Item>
-          </Relations>
+          </Relations>-->
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the DOT threshold.</Description>
-          <Order>d</Order>
+          <Order>3</Order>
         </SFL>
       </Private>
     </Element>
@@ -920,7 +953,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the COT threshold.</Description>
-          <Order>c</Order>
+          <Order>2</Order>
         </SFL>
       </Private>
     </Element>
@@ -1015,7 +1048,7 @@
           <EditType>0</EditType>
           <Format>0</Format>
           <Description>OV protection threshold for each cell</Description>
-          <Order>3</Order>
+          <Order>6</Order>
           <Relations>
             <Item>0x00031d04</Item>
           </Relations>
@@ -1064,7 +1097,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies whether to initiate protection on CHG when UV occurs.</Description>
-          <Order>a</Order>
+          <Order>5</Order>
         </SFL>
       </Private>
     </Element>
@@ -1125,7 +1158,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>UV protection threshold for each cell</Description>
-          <Order>7</Order>
+          <Order>9</Order>
           <Relations>
             <Item>0x00031a04</Item>
           </Relations>
@@ -1230,8 +1263,9 @@
           <Relations>
             <Item>0x00031900</Item>
             <Item>0x00031d04</Item>
+            <Item>0x00031a04</Item>
           </Relations>
-          <Order>2</Order>
+          <Order>7</Order>
         </SFL>
       </Private>
     </Element>
@@ -1277,7 +1311,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output type of DSG. Only effective for the CMOS type IC.</Description>
-          <Order>13</Order>
+          <Order>f</Order>
         </SFL>
       </Private>
     </Element>
@@ -1323,7 +1357,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output state of DSG when protection events occur.</Description>
-          <Order>12</Order>
+          <Order>e</Order>
         </SFL>
       </Private>
     </Element>
@@ -1369,7 +1403,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output type of CHG. Only effective for the CMOS type IC.</Description>
-          <Order>11</Order>
+          <Order>d</Order>
         </SFL>
       </Private>
     </Element>
@@ -1415,7 +1449,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output state of CHG when protection events occur.</Description>
-          <Order>f</Order>
+          <Order>c</Order>
         </SFL>
       </Private>
     </Element>
@@ -1461,7 +1495,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable the 20Hz square wave output on SDA when DOT occurs. Only effective in Standalone mode.</Description>
-          <Order>e</Order>
+          <Order>b</Order>
         </SFL>
       </Private>
     </Element>
@@ -1507,7 +1541,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies how to share the thermal resistor with the Microcontroller. Only effective in Standalone mode</Description>
-          <Order>15</Order>
+          <Order>a</Order>
         </SFL>
       </Private>
     </Element>
@@ -1545,7 +1579,7 @@
           <Description>uv_disable</Description>
         </SFL>
         <SFL Name="EFUSE Config">
-          <NickName>UV_DIS</NickName>
+          <NickName>UVP_DIS</NickName>
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
@@ -1599,7 +1633,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable dot function</Description>
-          <Order>17</Order>
+          <Order>15</Order>
         </SFL>
       </Private>
     </Element>
@@ -1645,7 +1679,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable cot function</Description>
-          <Order>18</Order>
+          <Order>14</Order>
         </SFL>
       </Private>
     </Element>
@@ -1691,7 +1725,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable cut function</Description>
-          <Order>19</Order>
+          <Order>13</Order>
         </SFL>
       </Private>
     </Element>
@@ -1737,7 +1771,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable cto function</Description>
-          <Order>1a</Order>
+          <Order>12</Order>
         </SFL>
       </Private>
     </Element>
@@ -1775,7 +1809,7 @@
           <Description>alert_option</Description>
         </SFL>
         <SFL Name="EFUSE Config">
-          <NickName>alert_option</NickName>
+          <NickName>ALERT_OPTION</NickName>
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
@@ -1783,7 +1817,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>alert_option</Description>
-          <Order>1b</Order>
+          <Order>11</Order>
         </SFL>
       </Private>
     </Element>
@@ -1822,15 +1856,15 @@
           <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="EFUSE Config">
-          <NickName>ovuv_scan_rate</NickName>
+          <NickName>Tsc</NickName>
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
           <MaxValue>1</MaxValue>
           <EditType>1</EditType>
           <Format>0</Format>
-          <Description>ovuv_scan_rate</Description>
-          <Order>1c</Order>
+          <Description>ov uv scan rate</Description>
+          <Order>10</Order>
         </SFL>
       </Private>
     </Element>
@@ -1879,7 +1913,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>OV protection delay scan-cycle. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
-          <Order>5</Order>
+          <Order>19</Order>
         </SFL>
       </Private>
     </Element>
@@ -1928,7 +1962,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>UV protection delay scan-cycle. </Description>
-          <Order>9</Order>
+          <Order>18</Order>
         </SFL>
       </Private>
     </Element>
@@ -1980,7 +2014,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Hysteresis for OV protection release. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
-          <Order>4</Order>
+          <Order>17</Order>
         </SFL>
       </Private>
     </Element>
@@ -2046,20 +2080,20 @@
         </SFL>
       </Private>
     </Element>
-    <Element Guid="0x00032006">
+    <Element Guid="0x00032007">
       <PhysicalData>0</PhysicalData>
       <PhyRef>1</PhyRef>
       <RegRef>1</RegRef>
       <SubType>0</SubType>
       <HexMin>0</HexMin>
-      <HexMax>3</HexMax>
+      <HexMax>1</HexMax>
       <PhyMin>0</PhyMin>
-      <PhyMax>3</PhyMax>
+      <PhyMax>1</PhyMax>
       <LocationList>
         <Location Position="Low">
           <Address>20</Address>
-          <StartBit>6</StartBit>
-          <BitsNumber>2</BitsNumber>
+          <StartBit>7</StartBit>
+          <BitsNumber>1</BitsNumber>
         </Location>
       </LocationList>
       <Private>
@@ -2067,13 +2101,13 @@
           <CustomerMode>true</CustomerMode>
           <BitTotal>8</BitTotal>
           <Index>20</Index>
-          <BitStart>6</BitStart>
-          <Length>2</Length>
+          <BitStart>7</BitStart>
+          <Length>1</Length>
           <Value>0</Value>
           <Read>true</Read>
           <Write>true</Write>
           <Group>Mapping</Group>
-          <Description>Reserved</Description>
+          <Description>TRIM_RSVD</Description>
         </SFL>
       </Private>
     </Element>
@@ -2556,7 +2590,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>OT/UT protection delay scan-cycle.</Description>
-          <Order>10</Order>
+          <Order>4</Order>
         </SFL>
       </Private>
     </Element>
@@ -2577,6 +2611,8 @@
         </Location>
       </LocationList>
       <ItemList>
+        <Item>Disable all OT/UT</Item>
+        <Item>75 degree</Item>
         <Item>80 degree</Item>
         <Item>85 degree</Item>
       </ItemList>
@@ -2598,14 +2634,14 @@
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
-          <MaxValue>1</MaxValue>
-          <Relations>
+          <MaxValue>3</MaxValue>
+          <!--<Relations>
             <Item>0x000c0002</Item>
-          </Relations>
+          </Relations>-->
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the DOT threshold.</Description>
-          <Order>d</Order>
+          <Order>3</Order>
         </SFL>
       </Private>
     </Element>
@@ -2652,7 +2688,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the COT threshold.</Description>
-          <Order>c</Order>
+          <Order>2</Order>
         </SFL>
       </Private>
     </Element>
@@ -2747,7 +2783,7 @@
           <EditType>0</EditType>
           <Format>0</Format>
           <Description>OV protection threshold for each cell</Description>
-          <Order>3</Order>
+          <Order>6</Order>
           <Relations>
             <Item>0x00032d04</Item>
           </Relations>
@@ -2796,7 +2832,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies whether to initiate protection on CHG when UV occurs.</Description>
-          <Order>a</Order>
+          <Order>5</Order>
         </SFL>
       </Private>
     </Element>
@@ -2857,7 +2893,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>UV protection threshold for each cell</Description>
-          <Order>7</Order>
+          <Order>9</Order>
           <Relations>
             <Item>0x00032a04</Item>
           </Relations>
@@ -2962,8 +2998,9 @@
           <Relations>
             <Item>0x00032900</Item>
             <Item>0x00032d04</Item>
+            <Item>0x00032a04</Item>
           </Relations>
-          <Order>2</Order>
+          <Order>7</Order>
         </SFL>
       </Private>
     </Element>
@@ -3009,7 +3046,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output type of DSG. Only effective for the CMOS type IC.</Description>
-          <Order>13</Order>
+          <Order>f</Order>
         </SFL>
       </Private>
     </Element>
@@ -3055,7 +3092,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output state of DSG when protection events occur.</Description>
-          <Order>12</Order>
+          <Order>e</Order>
         </SFL>
       </Private>
     </Element>
@@ -3101,7 +3138,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output type of CHG. Only effective for the CMOS type IC.</Description>
-          <Order>11</Order>
+          <Order>d</Order>
         </SFL>
       </Private>
     </Element>
@@ -3147,7 +3184,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies the output state of CHG when protection events occur.</Description>
-          <Order>f</Order>
+          <Order>c</Order>
         </SFL>
       </Private>
     </Element>
@@ -3193,7 +3230,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable the 20Hz square wave output on SDA when DOT occurs. Only effective in Standalone mode.</Description>
-          <Order>e</Order>
+          <Order>b</Order>
         </SFL>
       </Private>
     </Element>
@@ -3239,7 +3276,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>It specifies how to share the thermal resistor with the Microcontroller. Only effective in Standalone mode</Description>
-          <Order>15</Order>
+          <Order>a</Order>
         </SFL>
       </Private>
     </Element>
@@ -3277,7 +3314,7 @@
           <Description>uv_disable</Description>
         </SFL>
         <SFL Name="Register Config">
-          <NickName>UV_DIS</NickName>
+          <NickName>UVP_DIS</NickName>
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
@@ -3331,7 +3368,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable dot function</Description>
-          <Order>17</Order>
+          <Order>15</Order>
         </SFL>
       </Private>
     </Element>
@@ -3377,7 +3414,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable cot function</Description>
-          <Order>18</Order>
+          <Order>14</Order>
         </SFL>
       </Private>
     </Element>
@@ -3423,7 +3460,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable cut function</Description>
-          <Order>19</Order>
+          <Order>13</Order>
         </SFL>
       </Private>
     </Element>
@@ -3469,7 +3506,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Disable or enable cto function</Description>
-          <Order>1a</Order>
+          <Order>12</Order>
         </SFL>
       </Private>
     </Element>
@@ -3507,7 +3544,7 @@
           <Description>alert_option</Description>
         </SFL>
         <SFL Name="Register Config">
-          <NickName>alert_option</NickName>
+          <NickName>ALERT_OPTION</NickName>
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
@@ -3515,7 +3552,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>alert_option</Description>
-          <Order>1b</Order>
+          <Order>11</Order>
         </SFL>
       </Private>
     </Element>
@@ -3554,15 +3591,15 @@
           <bPhyDataFromList>true</bPhyDataFromList>
         </SFL>
         <SFL Name="Register Config">
-          <NickName>ovuv_scan_rate</NickName>
+          <NickName>Tsc</NickName>
           <Catalog>Woodpecker10</Catalog>
           <DefValue>0</DefValue>
           <MinValue>0</MinValue>
           <MaxValue>1</MaxValue>
           <EditType>1</EditType>
           <Format>0</Format>
-          <Description>ovuv_scan_rate</Description>
-          <Order>1c</Order>
+          <Description>ov uv scan rate</Description>
+          <Order>10</Order>
         </SFL>
       </Private>
     </Element>
@@ -3611,7 +3648,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>OV protection delay scan-cycle. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
-          <Order>5</Order>
+          <Order>19</Order>
         </SFL>
       </Private>
     </Element>
@@ -3660,7 +3697,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>UV protection delay scan-cycle. </Description>
-          <Order>9</Order>
+          <Order>18</Order>
         </SFL>
       </Private>
     </Element>
@@ -3712,7 +3749,7 @@
           <EditType>1</EditType>
           <Format>0</Format>
           <Description>Hysteresis for OV protection release. This setting is effective for VOVP1, VOVP2 and VOVP3.</Description>
-          <Order>4</Order>
+          <Order>17</Order>
         </SFL>
       </Private>
     </Element>
@@ -4818,8 +4855,8 @@
         </Location>
       </LocationList>
       <ItemList>
-        <Item>Do not need software to clear the event flags so as to release the protections</Item>
-        <Item>Need software to clear the event flags so as to release the protections</Item>
+        <Item>disable Software Release</Item>
+        <Item>enable Software Release</Item>
       </ItemList>
       <Private>
         <SFL Name="Expert">
