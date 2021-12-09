@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Root usage="DeviceDescriptor" chip="Woodpecker10" version="1.00">
+<Root usage="DeviceDescriptor" chip="Woodpecker10" version="1.00" PRODUCT_FAMILY="OZ89710">
   <Section Name ="BusOptions" Guid ="0x00100000">
     <Element Guid ="0x00100000">
       <PhysicalData>0</PhysicalData>

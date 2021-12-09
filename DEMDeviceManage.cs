@@ -13,11 +13,6 @@ namespace Cobra.Woodpecker10
     public class DEMDeviceManage : IDEMLib
     {
         #region Properties
-
-        public bool isAMTEnabled
-        {
-            get { return (m_busoption.GetATMElementbyGuid(AutomationElement.GUIDATMTestStart).dbValue > 0); }
-        }
         internal double rsense
         {
             get
