@@ -78,19 +78,19 @@ namespace Cobra.Woodpecker10
                         ret = ConvertPhysicalToHex(ref msg);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
+                        //可以在这里添加检查代码，检查0x10是否正确
                         PrepareHexData();
                         msg.percent = 60;
-                        Dictionary<byte, ushort> pairs = StoreEFUSE();
+                        Dictionary<uint, ushort> writedata = StoreParameters(msg.task_parameterlist.parameterlist);
                         ret = Write(ref msg);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
                         Mapping();
-                        if (!IsDownloadSuccessful(pairs))
-                        {
-                            ret = ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED;
-                            return ret;
-                        }
                         ret = Read(ref msg);
+                        if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
+                            return ret;
+                        Dictionary<uint, ushort> readdata = StoreParameters(msg.task_parameterlist.parameterlist);
+                        ret = ReadBackCheck(writedata, readdata);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
                         msg.gm.message = "Please remove 7.2V power supply from Tref pin.";
@@ -141,17 +141,86 @@ namespace Cobra.Woodpecker10
             }
             return ret;
         }
-
-        private bool IsDownloadSuccessful(Dictionary<byte, ushort> pairs)
+        public override UInt32 Write(ref TASKMessage msg)   //跳过ATE区域
         {
-            byte buf = 0;
-            for (byte i = (byte)ElementDefine.OP_USR_OFFSET; i <= ElementDefine.OP_USR_TOP; i++)
+            UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
+            List<byte> OpReglist = new List<byte>();
+
+            OpReglist = Utility.GenerateRegisterList(ref msg);
+            if (OpReglist == null)
+                return ret;
+            foreach (byte badd in OpReglist)
             {
-                ReadByte(i, ref buf);
-                if (buf != pairs[(byte)(i - 0x10)])
-                    return false;
+                if (badd == 0x10)       //跳过ATE区域
+                    continue;
+                ret = WriteByte(badd, (byte)parent.m_OpRegImg[badd].val);
+                parent.m_OpRegImg[badd].err = ret;
             }
-            return true;
+
+            return ret;
+        }
+
+        private uint ReadBackCheck(Dictionary<uint, ushort> writedata, Dictionary<uint, ushort> readdata)
+        {
+            UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
+            int num = 0;
+            //ushort rdata = 0, wdata = 0;
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb1 = new StringBuilder();
+            foreach (var guid in writedata.Keys)
+            {
+                if (writedata[guid] != readdata[guid])
+                {
+                    if (num < 3)
+                        sb.Append(string.Format("Write {0} is 0x{1:x4},Read back is 0x{2:x4}.\n", GetParamNameByGUID(guid), writedata[guid], readdata[guid]));
+                    sb1.Append(string.Format("Write {0} is 0x{1:x4},Read back is 0x{2:x4}.\n", GetParamNameByGUID(guid), writedata[guid], readdata[guid]));
+                    num++;
+                }
+            }
+            if (!string.IsNullOrEmpty(sb.ToString()))
+            {
+                if (num > 3) sb.Insert(0, string.Format("Total Error:{0},Please check the log file.\n", num));
+                parent.m_dynamicErrorLib_dic[ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED] = sb.ToString();
+                ret = ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED;
+                FolderMap.WriteFile(sb1.ToString());
+            }
+            return ret;
+        }
+
+        private string GetParamNameByGUID(uint guid)
+        {
+            string output;
+            switch (guid)
+            {
+                case 0x00031007: output = "DOT_TH(0x10)"; break;
+                case 0x00031800: output = "Tot-ut-dly"; break;
+                case 0x00031802: output = "DOT_TH(0x18)"; break;
+                case 0x00031804: output = "COT_TH"; break;
+                case 0x00031805: output = "Ncell"; break;
+                case 0x00031900: output = "Vovp"; break;
+                case 0x00031907: output = "UV_ON_CHGPAD"; break;
+                case 0x00031A00: output = "Vuvp"; break;
+                case 0x00031A04: output = "Vuvr-hys"; break;
+                case 0x00031A07: output = "BAT_TYPE"; break;
+                case 0x00031B00: output = "DSGPAD_TYPE"; break;
+                case 0x00031B01: output = "DSGPAD_ACTIVE_O"; break;
+                case 0x00031B02: output = "CHGPAD_TYPE"; break;
+                case 0x00031B03: output = "CHGPAD_ACTIVE_O"; break;
+                case 0x00031B05: output = "DOT_ON_SDA_DIS"; break;
+                case 0x00031B06: output = "THM_SHARE"; break;
+                case 0x00031C00: output = "UVP_DIS"; break;
+                case 0x00031C01: output = "DOT_DIS"; break;
+                case 0x00031C02: output = "COT_DIS"; break;
+                case 0x00031C03: output = "CUT_DIS"; break;
+                case 0x00031C04: output = "CTO_DIS"; break;
+                case 0x00031C05: output = "ALERT_OPTION"; break;
+                case 0x00031C07: output = "Tsc"; break;
+                case 0x00031D00: output = "Tovp"; break;
+                case 0x00031D02: output = "Tuvp"; break;
+                case 0x00031D04: output = "Vovr-hys"; break;
+                default: output = "unknown"; break;
+            }
+            return output;
         }
 
         private void Mapping()
@@ -164,12 +233,20 @@ namespace Cobra.Woodpecker10
             WriteByte((byte)ElementDefine.OP_SW_MAPPING, (byte)(tmp | 0x08));
         }
 
-        private Dictionary<byte, ushort> StoreEFUSE()
+        private Dictionary<uint, ushort> StoreParameters(AsyncObservableCollection<Parameter> parameterlist)
         {
-            Dictionary<byte, ushort> output = new Dictionary<byte, ushort>();
-            for (byte i = (byte)ElementDefine.EF_USR_OFFSET; i <= ElementDefine.EF_USR_TOP; i++)
+            //Dictionary<byte, ushort> output = new Dictionary<byte, ushort>();
+            //for (byte i = (byte)ElementDefine.EF_USR_OFFSET; i <= ElementDefine.EF_USR_TOP; i++)
+            //{
+            //    output.Add(i, parent.m_OpRegImg[i].val);
+            //}
+            //return output;
+            ushort rdata = 0;
+            Dictionary<uint, ushort> output = new Dictionary<uint, ushort>();
+            foreach (var param in parameterlist)
             {
-                output.Add(i, parent.m_OpRegImg[i].val);
+                dem_dm.ReadFromRegImg(param, ref rdata);
+                output.Add(param.guid, rdata);
             }
             return output;
         }

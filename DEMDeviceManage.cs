@@ -227,7 +227,8 @@ namespace Cobra.Woodpecker10
                 case ElementDefine.COMMAND.REGISTER_CONFIG_WRITE:
                 case ElementDefine.COMMAND.REGISTER_CONFIG_READ:
                     {
-                        bgworker.task_parameterlist.parameterlist.Add(pO_TRIM_RSVD);
+                        if (!bgworker.task_parameterlist.parameterlist.Contains(pO_TRIM_RSVD))
+                            bgworker.task_parameterlist.parameterlist.Add(pO_TRIM_RSVD);
                         ret = m_register_config_dem_bm.Command(ref bgworker);
                         break;
                     }
@@ -235,23 +236,24 @@ namespace Cobra.Woodpecker10
                 case ElementDefine.COMMAND.EFUSE_CONFIG_READ:
                 case ElementDefine.COMMAND.EFUSE_CONFIG_SAVE_EFUSE_HEX:
                     {
-                        bgworker.task_parameterlist.parameterlist.Add(pE_TRIM_RSVD);
+                        if (!bgworker.task_parameterlist.parameterlist.Contains(pE_TRIM_RSVD))
+                            bgworker.task_parameterlist.parameterlist.Add(pE_TRIM_RSVD);
                         ret = m_efuse_config_dem_bm.Command(ref bgworker);
                         break;
                     }
-                //case ElementDefine.COMMAND.MP_BIN_FILE_CHECK:
-                //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK_PC:
-                //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK:
-                //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK_PC:
-                //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK:
-                //case ElementDefine.COMMAND.MP_DOWNLOAD_PC:
-                //case ElementDefine.COMMAND.MP_DOWNLOAD:
-                //case ElementDefine.COMMAND.MP_READ_BACK_CHECK_PC:
-                //case ElementDefine.COMMAND.MP_READ_BACK_CHECK:
-                //    {
-                //        ret = m_mass_production_dem_bm.Command(ref bgworker);
-                //        break;
-                //    }
+                    //case ElementDefine.COMMAND.MP_BIN_FILE_CHECK:
+                    //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK_PC:
+                    //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK:
+                    //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK_PC:
+                    //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK:
+                    //case ElementDefine.COMMAND.MP_DOWNLOAD_PC:
+                    //case ElementDefine.COMMAND.MP_DOWNLOAD:
+                    //case ElementDefine.COMMAND.MP_READ_BACK_CHECK_PC:
+                    //case ElementDefine.COMMAND.MP_READ_BACK_CHECK:
+                    //    {
+                    //        ret = m_mass_production_dem_bm.Command(ref bgworker);
+                    //        break;
+                    //    }
             }
             return ret;
         }
@@ -310,7 +312,7 @@ namespace Cobra.Woodpecker10
 #endif
             return m_dem_bm_base.GetRegisteInfor(ref bgworker);
         }
-#endregion
+        #endregion
     }
 }
 

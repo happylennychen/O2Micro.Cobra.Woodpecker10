@@ -298,7 +298,7 @@ namespace Cobra.Woodpecker10
             return ret;
         }
 
-        public UInt32 Write(ref TASKMessage msg)    //Expert 把这里污染了 //去掉了污染20200513
+        public virtual UInt32 Write(ref TASKMessage msg)    //Expert 把这里污染了 //去掉了污染20200513
         {
             UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
             List<byte> OpReglist = new List<byte>();

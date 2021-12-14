@@ -92,7 +92,7 @@ namespace Cobra.Woodpecker10
         /// </summary>
         /// <param name="pval"></param>
         /// <returns></returns>
-        protected UInt32 ReadFromRegImg(Parameter p, ref UInt16 pval)
+        public UInt32 ReadFromRegImg(Parameter p, ref UInt16 pval)
         {
             UInt32 data;
             UInt16 hi = 0, lo = 0;
