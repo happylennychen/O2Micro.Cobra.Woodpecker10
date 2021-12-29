@@ -1885,10 +1885,10 @@
         </Location>
       </LocationList>
       <ItemList>
-        <Item>1 scan-cycle</Item>
-        <Item>2 scan-cycle</Item>
         <Item>4 scan-cycle</Item>
         <Item>8 scan-cycle</Item>
+        <Item>16 scan-cycle</Item>
+        <Item>32 scan-cycle</Item>
       </ItemList>
       <Private>
         <SFL Name="Expert">
@@ -1934,10 +1934,10 @@
         </Location>
       </LocationList>
       <ItemList>
-        <Item>1 scan-cycle</Item>
         <Item>2 scan-cycle</Item>
         <Item>4 scan-cycle</Item>
         <Item>8 scan-cycle</Item>
+        <Item>16 scan-cycle</Item>
       </ItemList>
       <Private>
         <SFL Name="Expert">
@@ -3620,10 +3620,10 @@
         </Location>
       </LocationList>
       <ItemList>
-        <Item>1 scan-cycle</Item>
-        <Item>2 scan-cycle</Item>
         <Item>4 scan-cycle</Item>
         <Item>8 scan-cycle</Item>
+        <Item>16 scan-cycle</Item>
+        <Item>32 scan-cycle</Item>
       </ItemList>
       <Private>
         <SFL Name="Expert">
@@ -3669,10 +3669,10 @@
         </Location>
       </LocationList>
       <ItemList>
-        <Item>1 scan-cycle</Item>
         <Item>2 scan-cycle</Item>
         <Item>4 scan-cycle</Item>
         <Item>8 scan-cycle</Item>
+        <Item>16 scan-cycle</Item>
       </ItemList>
       <Private>
         <SFL Name="Expert">
