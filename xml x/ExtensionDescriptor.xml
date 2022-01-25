@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Root usage="ExtensionDescriptor" chip="Woodpecker10" chiptype="5710" bustype ="I2C" libname ="Cobra.Woodpecker10" ProjectCode="OCEWDPXX" AppVersion="2.00.03" OCEVersion="1.0.3.0">
+<Root usage="ExtensionDescriptor" chip="Woodpecker10" chiptype="5710" bustype ="I2C" libname ="Cobra.Woodpecker10" ProjectCode="OCEWDPXX" AppVersion="2.00.03" OCEVersion="1.0.3.0"  OCEName="OZ89710_A0_X_20211229">
   <Part Name="DBConfig">
     <ChipName>Woodpecker10</ChipName>
     <ChipVersion>A0</ChipVersion>
