@@ -431,12 +431,6 @@ namespace Cobra.Woodpecker10
         #endregion
 
         #region 其他公共函数
-
-        public void PrepareHexData()
-        {
-            //if (isFrozen == false)
-                parent.m_OpRegImg[ElementDefine.EF_USR_TOP].val |= 0x80;    //Set Frozen bit in image
-        }
         #endregion
     }
 }

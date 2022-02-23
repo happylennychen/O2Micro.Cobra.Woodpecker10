@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Cobra.Woodpecker10
 {
-    internal class EFUSEConfigDEMBehaviorManage:DEMBehaviorManageBase
+    internal class EFUSEConfigDEMBehaviorManage : DEMBehaviorManageBase
     {
         #region 基础服务功能设计
         public override UInt32 Command(ref TASKMessage msg)
@@ -90,7 +90,7 @@ namespace Cobra.Woodpecker10
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
                         Dictionary<uint, ushort> readdata = StoreParameters(msg.task_parameterlist.parameterlist);
-                        ret = ReadBackCheck(writedata, readdata);
+                        ret = ReadBackCheck(ref msg, writedata, readdata);
                         if (ret != LibErrorCode.IDS_ERR_SUCCESSFUL)
                             return ret;
                         msg.gm.message = "Please remove 7.2V power supply from Tref pin.";
@@ -160,67 +160,25 @@ namespace Cobra.Woodpecker10
             return ret;
         }
 
-        private uint ReadBackCheck(Dictionary<uint, ushort> writedata, Dictionary<uint, ushort> readdata)
+        private uint ReadBackCheck(ref TASKMessage msg, Dictionary<uint, ushort> writedata, Dictionary<uint, ushort> readdata)
         {
             UInt32 ret = LibErrorCode.IDS_ERR_SUCCESSFUL;
+            Dictionary<string, string> verifyDic = new Dictionary<string, string>();
             int num = 0;
             //ushort rdata = 0, wdata = 0;
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb1 = new StringBuilder();
             foreach (var guid in writedata.Keys)
             {
                 if (writedata[guid] != readdata[guid])
                 {
-                    if (num < 3)
-                        sb.Append(string.Format("Write {0} is 0x{1:x4},Read back is 0x{2:x4}.\n", GetParamNameByGUID(guid), writedata[guid], readdata[guid]));
-                    sb1.Append(string.Format("Write {0} is 0x{1:x4},Read back is 0x{2:x4}.\n", GetParamNameByGUID(guid), writedata[guid], readdata[guid]));
-                    num++;
+                    verifyDic.Add(guid.ToString(), string.Format("Write is 0x{0:x4},Read back is 0x{1:x4}", writedata[guid], readdata[guid]));
                 }
             }
-            if (!string.IsNullOrEmpty(sb.ToString()))
+            if (verifyDic.Count != 0)
             {
-                if (num > 3) sb.Insert(0, string.Format("Total Error:{0},Please check the log file.\n", num));
-                parent.m_dynamicErrorLib_dic[ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED] = sb.ToString();
-                ret = ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED;
-                FolderMap.WriteFile(sb1.ToString());
+                msg.sub_task_json = SharedAPI.SerializeDictionaryToJsonString(verifyDic);
+                ret = LibErrorCode.IDS_ERR_SECTION_DEVICECONFSFL_PARAM_VERIFY;
             }
             return ret;
-        }
-
-        private string GetParamNameByGUID(uint guid)
-        {
-            string output;
-            switch (guid)
-            {
-                case 0x00031007: output = "DOT_TH(0x10)"; break;
-                case 0x00031800: output = "Tot-ut-dly"; break;
-                case 0x00031802: output = "DOT_TH(0x18)"; break;
-                case 0x00031804: output = "COT_TH"; break;
-                case 0x00031805: output = "Ncell"; break;
-                case 0x00031900: output = "Vovp"; break;
-                case 0x00031907: output = "UV_ON_CHGPAD"; break;
-                case 0x00031A00: output = "Vuvp"; break;
-                case 0x00031A04: output = "Vuvr-hys"; break;
-                case 0x00031A07: output = "BAT_TYPE"; break;
-                case 0x00031B00: output = "DSGPAD_TYPE"; break;
-                case 0x00031B01: output = "DSGPAD_ACTIVE_O"; break;
-                case 0x00031B02: output = "CHGPAD_TYPE"; break;
-                case 0x00031B03: output = "CHGPAD_ACTIVE_O"; break;
-                case 0x00031B05: output = "DOT_ON_SDA_DIS"; break;
-                case 0x00031B06: output = "THM_SHARE"; break;
-                case 0x00031C00: output = "UVP_DIS"; break;
-                case 0x00031C01: output = "DOT_DIS"; break;
-                case 0x00031C02: output = "COT_DIS"; break;
-                case 0x00031C03: output = "CUT_DIS"; break;
-                case 0x00031C04: output = "CTO_DIS"; break;
-                case 0x00031C05: output = "ALERT_OPTION"; break;
-                case 0x00031C07: output = "Tsc"; break;
-                case 0x00031D00: output = "Tovp"; break;
-                case 0x00031D02: output = "Tuvp"; break;
-                case 0x00031D04: output = "Vovr-hys"; break;
-                default: output = "unknown"; break;
-            }
-            return output;
         }
 
         private void Mapping()
@@ -304,6 +262,12 @@ namespace Cobra.Woodpecker10
             }
             msg.sm.efusebindata = tmp;
             return LibErrorCode.IDS_ERR_SUCCESSFUL;
+        }
+
+        public void PrepareHexData()
+        {
+            //if (isFrozen == false)
+            parent.m_OpRegImg[ElementDefine.EF_USR_TOP].val |= 0x80;    //Set Frozen bit in image
         }
         #endregion
     }

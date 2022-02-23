@@ -120,7 +120,6 @@ namespace Cobra.Woodpecker10
         internal const UInt32 IDS_ERR_DEM_FROZEN = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0005;
         //internal const UInt32 IDS_ERR_DEM_BLOCK = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0006;
         internal const UInt32 IDS_ERR_DEM_ONE_PARAM_DISABLE = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0007;
-        internal const UInt32 IDS_ERR_DEM_READ_BACK_CHECK_FAILED = LibErrorCode.IDS_ERR_SECTION_DYNAMIC_DEM + 0x0008;
         #endregion
 
         public enum EFUSE_MODE : ushort

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Root usage="ExtensionDescriptor" chip="Woodpecker10" chiptype="5710" bustype ="I2C" libname ="Cobra.Woodpecker10" ProjectCode="OCEWDPXX" AppVersion="2.00.03" OCEVersion="1.0.3.0">
+<Root usage="ExtensionDescriptor" chip="OZ89710" chiptype="5710" bustype ="I2C" libname ="Cobra.Woodpecker10" ProjectCode="OCEWDPXX" AppVersion="2.00.03" OCEVersion="1.0.3.0">
   <Part Name="DBConfig">
     <ChipName>Woodpecker10</ChipName>
-    <ChipVersion>A0</ChipVersion>
+    <ChipVersion>A1</ChipVersion>
     <UserType>Y</UserType>
-    <Date>20211217</Date>
+    <Date>20220222</Date>
     <HasCom>true</HasCom>
-    <HasAMT>true</HasAMT>
   </Part>
   <Part Name = "MainBtnList">
     <Button Label = "Expert"	Name = "Exper"         PanelName ="Cobra.ExperPanel"/>

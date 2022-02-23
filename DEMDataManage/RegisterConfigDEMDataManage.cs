@@ -13,7 +13,7 @@ namespace Cobra.Woodpecker10
         public RegisterConfigDEMDataManage(object pParent) : base(pParent)
         {
         }
-        bool FromHexToPhy = false;
+        //bool FromHexToPhy = false;
         //private void UpdateDOTE(ref Parameter pDOT_E)
         //{
         //    Parameter pDOT = new Parameter();
@@ -259,7 +259,7 @@ namespace Cobra.Woodpecker10
                     UpdateUVR(ref pTarget);
                     break;
             }
-            FromHexToPhy = false;
+            //FromHexToPhy = false;
             return;
         }
 
@@ -490,7 +490,7 @@ namespace Cobra.Woodpecker10
                     p.phydata = dtmp + p.offset;
                     break;
             }
-            FromHexToPhy = true;
+            //FromHexToPhy = true;
             /*if (parent.fromCFG == true)
             {
                 byte tmp = 0;

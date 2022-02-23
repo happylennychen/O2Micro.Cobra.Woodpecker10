@@ -32,8 +32,6 @@ namespace Cobra.Woodpecker10
         internal ParamListContainer m_Section_ParamlistContainer = null;
         internal ParamListContainer m_SFLs_ParamlistContainer = null;
 
-        //internal COBRA_HWMode_Reg[] m_EFRegImg = new COBRA_HWMode_Reg[ElementDefine.EF_MEMORY_SIZE + ElementDefine.EF_MEMORY_OFFSET];
-        //internal COBRA_HWMode_Reg[] m_EFRegImgEX = new COBRA_HWMode_Reg[ElementDefine.EF_MEMORY_SIZE];
         internal COBRA_HWMode_Reg[] m_OpRegImg = new COBRA_HWMode_Reg[ElementDefine.OP_MEMORY_SIZE];
         private Dictionary<UInt32, COBRA_HWMode_Reg[]> m_HwMode_RegList = new Dictionary<UInt32, COBRA_HWMode_Reg[]>();
 
@@ -43,8 +41,6 @@ namespace Cobra.Woodpecker10
         private ExpertDEMBehaviorManage m_expert_dem_bm = new ExpertDEMBehaviorManage();
 
         public CCommunicateManager m_Interface = new CCommunicateManager();
-        //private DEMBehaviorManage m_dem_bm = new DEMBehaviorManage();
-        //private DEMDataManage m_dem_dm = new DEMDataManage();
 
         public Parameter pE_BAT_TYPE = new Parameter();
         public Parameter pE_DOT_TH = new Parameter();
@@ -71,7 +67,6 @@ namespace Cobra.Woodpecker10
             //{ElementDefine.IDS_ERR_DEM_FROZEN_EFUSE,"EFUSE is frozen, stop writing."},
             {ElementDefine.IDS_ERR_DEM_FROZEN,"Chip is frozen. Write operation is prohibited"},
             {ElementDefine.IDS_ERR_DEM_ONE_PARAM_DISABLE,"Single parameter opeartion is not supported."},
-            {ElementDefine.IDS_ERR_DEM_READ_BACK_CHECK_FAILED,"Read back check failed."},
         };
         #endregion
         #region other functions
@@ -93,29 +88,13 @@ namespace Cobra.Woodpecker10
             //pO_DOT_E = pc.GetParameterByGuid(ElementDefine.O_DOT_E);
         }
 
-        //public void Physical2Hex(ref Parameter param)
-        //{
-        //    m_dem_dm.Physical2Hex(ref param);
-        //}
-
-        //public void Hex2Physical(ref Parameter param)
-        //{
-        //    m_dem_dm.Hex2Physical(ref param);
-        //}
-
         private void SectionParameterListInit(ref ParamListContainer devicedescriptionlist)
         {
             tempParamlist = devicedescriptionlist.GetParameterListByGuid(ElementDefine.TemperatureElement);
             if (tempParamlist == null) return;
 
-            //EFParamlist = devicedescriptionlist.GetParameterListByGuid(ElementDefine.EFUSEElement);
-            //if (EFParamlist == null) return;
-
             OPParamlist = devicedescriptionlist.GetParameterListByGuid(ElementDefine.MappingElement);
             if (OPParamlist == null) return;
-
-            //pullupR = tempParamlist.GetParameterByGuid(ElementDefine.TpETPullupR).phydata;
-            //itv0 = tempParamlist.GetParameterByGuid(ElementDefine.TpITSlope).phydata;
         }
 
         public void ModifyTemperatureConfig(Parameter p, bool bConvert)
@@ -157,8 +136,6 @@ namespace Cobra.Woodpecker10
 
             CreateInterface();
 
-            //m_dem_bm.Init(this);
-            //m_dem_dm.Init(this);
             m_dem_bm_base.parent = this;
             m_dem_bm_base.dem_dm = new DEMDataManageBase(m_dem_bm_base);
             m_register_config_dem_bm.parent = this;
@@ -209,7 +186,6 @@ namespace Cobra.Woodpecker10
 
         public UInt32 Erase(ref TASKMessage bgworker)
         {
-            //return m_dem_bm.EraseEEPROM(ref bgworker);
             return LibErrorCode.IDS_ERR_SUCCESSFUL;
         }
 
@@ -241,19 +217,6 @@ namespace Cobra.Woodpecker10
                         ret = m_efuse_config_dem_bm.Command(ref bgworker);
                         break;
                     }
-                    //case ElementDefine.COMMAND.MP_BIN_FILE_CHECK:
-                    //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK_PC:
-                    //case ElementDefine.COMMAND.MP_FROZEN_BIT_CHECK:
-                    //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK_PC:
-                    //case ElementDefine.COMMAND.MP_DIRTY_CHIP_CHECK:
-                    //case ElementDefine.COMMAND.MP_DOWNLOAD_PC:
-                    //case ElementDefine.COMMAND.MP_DOWNLOAD:
-                    //case ElementDefine.COMMAND.MP_READ_BACK_CHECK_PC:
-                    //case ElementDefine.COMMAND.MP_READ_BACK_CHECK:
-                    //    {
-                    //        ret = m_mass_production_dem_bm.Command(ref bgworker);
-                    //        break;
-                    //    }
             }
             return ret;
         }
